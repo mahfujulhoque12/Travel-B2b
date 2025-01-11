@@ -130,10 +130,21 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                                   text: `Do you want to select "${option}"?`,
                                   icon: "question",
                                   showCancelButton: true,
+                                  width: "300px", // Adjust width of the popup
+                                  heightAuto: true, // Adjust height based on content
                                   confirmButtonColor: "#1768D0",
                                   cancelButtonColor: "#d33",
                                   confirmButtonText: "Yes, select it!",
                                   cancelButtonText: "No, cancel",
+                                  customClass: {
+                                    popup: "tw-swal-popup", // Popup container styles
+                                    title: "tw-swal-title", // Title styles
+                                    htmlContainer: "tw-swal-content", // Content (text) styles
+                                    confirmButton: "tw-swal-confirm", // Confirm button styles
+                                    cancelButton: "tw-swal-cancel", // Cancel button styles
+                                    
+                                  },
+                                
                                  
                                 }).then((result) => {
                                   if (result.isConfirmed) {
@@ -153,6 +164,14 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                                       icon: "success",
                                       timer: 1500,
                                       showConfirmButton: false,
+                                      customClass: {
+                                        popup: "tw-swal-popup", // Popup container styles
+                                        title: "tw-swal-title", // Title styles
+                                        htmlContainer: "tw-swal-content", // Content (text) styles
+                                        confirmButton: "tw-swal-confirm", // Confirm button styles
+                                        cancelButton: "tw-swal-cancel", // Cancel button styles
+                                        
+                                      },
                                     }).then(() => {
                                       // Close the dropdown after success message
                                       setIsDropdownOpen(null);

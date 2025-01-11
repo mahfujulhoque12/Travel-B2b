@@ -63,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div
       className={cn(
-        "rounded-md fixed top-5 left-5 z-[9999] px-2 bg-white text-[#243045] transition-all duration-300",
+        "rounded-md fixed top-5 left-5 z-[999] px-2 bg-white text-[#243045] transition-all duration-300",
         isOpen ? "w-56" : "w-20"
       )}
       style={{ height: "calc(100vh - 40px)" }}

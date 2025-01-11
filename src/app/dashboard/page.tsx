@@ -1,7 +1,12 @@
-import React from "react";
 
-const page = () => {
-  return <div>dashborar</div>;
+import DashboardAccountWrapper from "@/components/organisms/dashboard-account/DashboardAccountWrapper";
+
+const Page = () => {
+  return (
+    <div>
+      <DashboardAccountWrapper/>
+    </div>
+  );
 };
 
-export default page;
+export default Page;

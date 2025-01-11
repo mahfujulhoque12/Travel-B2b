@@ -1,12 +1,14 @@
-import DashboardCard from '@/components/molecules/global/DashboardCard'
-import DashboardChart from '@/components/molecules/global/DashboardChart'
+
+
 import React from 'react'
+import Dashboard from './AccountCard'
+import DashboardChat from '@/components/molecules/dashboard/DashboardChat'
 
 const DashboardAccountFlight = () => {
   return (
     <div>
-        <DashboardCard/>
-        <DashboardChart/>
+        <Dashboard/>
+      <DashboardChat/>
     </div>
   )
 }

@@ -147,7 +147,6 @@ const BookingTableWrapper: React.FC = () => {
             totalPages={totalPages}
             onPageChange={(page: number) => handlePageChange(2, page)}
             actionButton={buttons}
-            
           />
         );
       case 3:
@@ -186,7 +185,7 @@ const BookingTableWrapper: React.FC = () => {
   };
 
   return (
-    <div className="p-5 rounded-md mt-5 bg-white">
+    <div className="p-5 rounded-md">
       <TabNavigation tabs={tabs} onTabChange={setActiveTab} />
       <div>{renderTabContent()}</div>
 

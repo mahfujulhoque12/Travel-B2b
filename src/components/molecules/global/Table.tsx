@@ -18,7 +18,6 @@ export interface ColumnConfig {
 }
 
 interface ReusableTableProps {
- 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any[];
   columns: ColumnConfig[];
@@ -75,7 +74,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
               {columns.map((column) => (
                 <td
                   key={`row-${row.id || rowIndex}-col-${column.key}`}
-                  className={`border-b px-4 py-2 font-normal text-xs ${
+                  className={`border-b px-4 py-2 font-normal text-sm ${
                     column.key === "status" && row[column.key]
                       ? getStatusColor(row[column.key])
                       : "text-[#243045]"

@@ -14,12 +14,26 @@ type SidebarHeaderProps = {
   toggleAppSlidebar: () => void;
 };
 
-const SidebarHeader: React.FC<SidebarHeaderProps> = ({ isOpen, toggleAppSlidebar }) => {
+const SidebarHeader: React.FC<SidebarHeaderProps> = ({
+  isOpen,
+  toggleAppSlidebar,
+}) => {
   return (
-    <div className="relative flex items-center justify-between p-4 border-b-2 border-gray-100">
+    <div
+      className="sticky top-0 flex items-center justify-between p-4 border-b-2 border-gray-100 flex-shrink-0"
+      onMouseEnter={(e) => {
+        e.stopPropagation();
+      }}
+    >
       <Link href="/" className="flex items-center justify-center">
         {isOpen ? (
-          <Image src={logo} alt="Full Logo" width={150} height={50} className="h-[30px]" />
+          <Image
+            src={logo}
+            alt="Full Logo"
+            width={150}
+            height={50}
+            className="h-[30px]"
+          />
         ) : (
           <Image
             src={mobileLogo}

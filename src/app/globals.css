@@ -111,4 +111,11 @@ body {
   background-color: #f5f7fa !important;
 }
 
+.nav-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.nav-no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}

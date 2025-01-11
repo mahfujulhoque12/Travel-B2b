@@ -58,7 +58,7 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
 
   return (
     <div>
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex  flex-col sm:flex-row sm:justify-start sm:items-center gap-2">
           <TableSearch
             searchQuery={searchQuery}
@@ -91,7 +91,7 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className=" mt-8 ">
+        <div className=" mt-5">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
             {filteredTableData.length > 0 && (

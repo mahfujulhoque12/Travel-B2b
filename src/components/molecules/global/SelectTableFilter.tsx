@@ -56,7 +56,7 @@ const SelectTableFilter: React.FC<SelectFilterProps> = ({
     <div ref={dropdownRef} className="relative inline-block text-left">
       <button
         onClick={() => setIsDropdownOpen((prev) => !prev)}
-        className="text-sm border border-[#1768D0] text-[#1768D0] rounded-md shadow-sm py-2 px-3 bg-white w-[120px] flex items-center justify-between"
+        className="text-sm border border-[#1768D0] text-[#1768D0] rounded-md shadow-sm py-1.5 px-3 bg-white w-[120px] flex items-center justify-between"
         type="button"
       >
         <span>{selectedOption}</span>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReusableButton from "@/components/molecules/global/ReusableButton";
 import Image from "next/image";
+import Swal from "sweetalert2";
 
 type CellType = "button" | "text" | "checkbox" | "image" | "select";
 
@@ -124,9 +125,45 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                               key={`${row.id || rowIndex}-opt-${index}`}
                               className="px-4 w-full py-2 transition-all duration-200 hover:bg-[#D8ECFD] hover:text-[#1768D0] cursor-pointer"
                               onClick={() => {
-                                column.onSelectChange?.(row, option); // Trigger callback
-                                row[column.key] = option; // Update value
-                                setIsDropdownOpen(null); // Close dropdown
+                                Swal.fire({
+                                  title: "Are you sure?",
+                                  text: `Do you want to select "${option}"?`,
+                                  icon: "question",
+                                  showCancelButton: true,
+                                  confirmButtonColor: "#1768D0",
+                                  cancelButtonColor: "#d33",
+                                  confirmButtonText: "Yes, select it!",
+                                  cancelButtonText: "No, cancel",
+                                 
+                                }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    // Update the row data first
+                                    row[column.key] = option; // Update the value immediately
+                                    column.onSelectChange?.(row, option); // Trigger callback if needed
+
+                                    // Keep dropdown open to reflect changes
+                                    setIsDropdownOpen(
+                                      `${rowIndex}-${column.key}`
+                                    );
+
+                                    // Show success alert after a delay
+                                    Swal.fire({
+                                      title: "Selected!",
+                                      text: `"${option}" has been selected.`,
+                                      icon: "success",
+                                      timer: 1500,
+                                      showConfirmButton: false,
+                                    }).then(() => {
+                                      // Close the dropdown after success message
+                                      setIsDropdownOpen(null);
+                                    });
+                                  } else {
+                                    // Keep dropdown open if canceled
+                                    setIsDropdownOpen(
+                                      `${rowIndex}-${column.key}`
+                                    );
+                                  }
+                                });
                               }}
                             >
                               {option}

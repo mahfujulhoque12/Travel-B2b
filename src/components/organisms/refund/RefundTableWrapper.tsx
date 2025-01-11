@@ -194,7 +194,7 @@ const RefundTableWrapper:React.FC  = () => {
   };
 
   return (
-    <div className="bg-white p-5 rounded-md mt-5">
+    <div className="p-5 rounded-md">
       <TabNavigation tabs={tabs} onTabChange={setActiveTab} />
       <div>{renderTabContent()}</div>
       <Export

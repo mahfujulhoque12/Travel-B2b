@@ -46,8 +46,7 @@ const CustomerData: React.FC<BookingPropsType> = ({
 
   return (
     <div>
-    <div className="table-container max-h-[76vh]">
-      <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 ">
+     <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 ">
         <div className="flex  flex-col sm:flex-row sm:justify-start sm:items-center gap-2">
           <TableSearch
             searchQuery={searchQuery}
@@ -68,7 +67,7 @@ const CustomerData: React.FC<BookingPropsType> = ({
             <Button
               key={index}
               onClick={button.onClick}
-              className={`flex gap-1 px-4 py-2 rounded-md text-white text-sm font-bold transition-all duration-150 ${button.className}`}
+              className={`flex gap-1 px-4 py-1.5 rounded-md text-white text-sm font-bold transition-all duration-150 ${button.className}`}
             >
               {button.icon}
               {button.label}
@@ -77,7 +76,7 @@ const CustomerData: React.FC<BookingPropsType> = ({
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className="mt-8 ">
+        <div className="mt-5">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
           {filteredTableData.length > 0 && (
@@ -90,7 +89,6 @@ const CustomerData: React.FC<BookingPropsType> = ({
         </div>
         </div>
       </div>
-    </div>
        
         </div>
   );

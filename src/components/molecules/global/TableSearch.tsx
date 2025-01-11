@@ -26,7 +26,7 @@ const TableSearch = ({
         value={localQuery}
         onChange={(e) => setLocalQuery(e.target.value)}
         placeholder="Search here"
-        className="w-full h-10 pl-10 border rounded-md outline-none bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
+        className="w-full h-9 pl-10 border rounded-md outline-none bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
       />
       {localQuery && (
         <Button

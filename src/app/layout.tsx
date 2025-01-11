@@ -22,7 +22,6 @@ export default function RootLayout({
 }>) {
   const [isOpen, setIsOpen] = useState(false);
   const toggleAppSlidebar = () => setIsOpen(!isOpen);
-
   const handleMouseEnter = () => setIsOpen(true);
   const handleMouseLeave = () => setIsOpen(false);
 
@@ -47,7 +46,7 @@ export default function RootLayout({
             <div className="flex flex-col h-full space-y-5">
               <Topbar />
 
-              <main className="flex-grow overflow-y-auto rounded-md space-y-5 bg-white">
+              <main className="flex-grow overflow-y-auto rounded-md space-y-5 bg-white table-container">
                 <div>{children}</div>
               </main>
             </div>

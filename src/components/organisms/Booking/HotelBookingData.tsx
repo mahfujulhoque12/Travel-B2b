@@ -59,7 +59,6 @@ const HotelBookingData: React.FC<BookingPropsType> = ({
 
   return (
     <div>
-    <div className="table-container max-h-[69vh]">
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 ">
         <div className="flex  flex-col sm:flex-row sm:justify-start sm:items-center gap-2">
           <TableSearch
@@ -93,19 +92,17 @@ const HotelBookingData: React.FC<BookingPropsType> = ({
         <div className=" mt-8 ">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
-          {filteredTableData.length > 0 && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={onPageChange}
-            />
-          )}
-        </div>
+            {filteredTableData.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={onPageChange}
+              />
+            )}
+          </div>
         </div>
       </div>
     </div>
-       
-        </div>
   );
 };
 

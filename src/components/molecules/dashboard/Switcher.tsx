@@ -2,6 +2,9 @@ import { Button } from '@/components/atoms/Button';
 import { Input } from '@/components/atoms/Input';
 import React, { useEffect, useRef, useState } from 'react';
 import { FaAngleDown } from 'react-icons/fa6';
+import { PiListChecksFill } from 'react-icons/pi';
+import { DayPicker } from 'react-day-picker';
+import 'react-day-picker/style.css';
 
 const useDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +30,8 @@ const useDropdown = () => {
 };
 
 const Switcher = () => {
+  const [selected, setSelected] = useState<Date | undefined>(undefined); // Updated type to Date | undefined
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false); // Manage calendar visibility
   const languageDropdown = useDropdown();
   const [selectedLanguage, setSelectedLanguage] = useState('Orders');
 
@@ -35,13 +40,18 @@ const Switcher = () => {
     languageDropdown.close();
   };
 
+  const toggleCalendar = () => setIsCalendarOpen((prev) => !prev);
+
+  const handleDateSelect = (date: Date) => {
+    setSelected(date);
+    setIsCalendarOpen(false); // Close the calendar when a date is selected
+  };
+
   return (
     <div className="px-4 flex items-center justify-between mb-3">
       {/* Title Section */}
       <div>
-        <span className="text-lg font-normal text-[#243045]">
-          Income/Expense
-        </span>
+        <span className="text-lg font-normal text-[#243045]">Income/Expense</span>
       </div>
 
       {/* Switch and Dropdown Section */}
@@ -64,7 +74,7 @@ const Switcher = () => {
           </label>
         </div>
 
-        {/* Language Dropdown */}
+        {/* Orders Dropdown */}
         <div
           className="relative"
           ref={languageDropdown.ref}
@@ -73,18 +83,19 @@ const Switcher = () => {
           }}
         >
           <Button
-            className="text-[#8391A1] bg-white rounded p-1 text-sm relative cursor-pointer flex items-center gap-1"
+            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-1 text-sm relative cursor-pointer flex items-center gap-1"
             onClick={languageDropdown.toggle}
             aria-haspopup="true"
             aria-expanded={languageDropdown.isOpen}
           >
+            <PiListChecksFill />
             {selectedLanguage}
             <FaAngleDown />
           </Button>
 
           {languageDropdown.isOpen && (
             <ul className="absolute animate-slide-down bg-white shadow-md rounded w-24 top-10 border z-10">
-              {['Orders', 'Cancle', 'Pending'].map((language) => (
+              {['Orders', 'Cancel', 'Pending'].map((language) => (
                 <li
                   key={language}
                   className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer"
@@ -94,6 +105,31 @@ const Switcher = () => {
                 </li>
               ))}
             </ul>
+          )}
+        </div>
+
+        {/* Day Picker Section */}
+        <div className="relative">
+          <Button
+            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-1 text-sm relative cursor-pointer"
+            onClick={toggleCalendar}
+          >
+            {selected ? selected.toLocaleDateString() : 'Pick a day'}
+          </Button>
+
+          {/* Calendar dropdown */}
+          {isCalendarOpen && (
+            <div className="absolute p-3 top-10 left-0 w-[340px] bg-white shadow-lg rounded-md z-10 border animate-slide-down  max-w-[350px] transition-all ease-in-out duration-200">
+              <DayPicker
+                mode="single"
+                selected={selected} // Pass `selected` as Date or undefined
+                onSelect={handleDateSelect} // Close the calendar when a date is selected
+                footer={
+                  selected ? `Selected: ${selected.toLocaleDateString()}` : 'Pick a day.'
+                }
+                required // Add the required prop here
+              />
+            </div>
           )}
         </div>
       </div>

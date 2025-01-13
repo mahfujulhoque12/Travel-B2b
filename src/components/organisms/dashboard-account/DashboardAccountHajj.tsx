@@ -1,11 +1,13 @@
 
 
 import React from 'react'
-import Dashboard from '../../molecules/dashboard-account/AccountCard'
+
 import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory'
 import { ColumnConfig } from '@/components/molecules/global/Table';
-import DashboardChart from '@/components/molecules/dashboard-account/DashboardChart';
-import { fligtRecentHistory } from '@/data/historyData';
+import HajjCard from '@/components/molecules/dashboard-account/HajjCard';
+import HajjChart from '@/components/molecules/dashboard-account/HajjChart';
+import { hajjRcentHistory } from '@/data/historyData';
+
 
 
 const columns: ColumnConfig[] = [
@@ -38,20 +40,23 @@ const columns: ColumnConfig[] = [
 ];
 
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fetchRecentHistory = async (): Promise<any[]> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new Promise<any[]>((resolve) => {
     setTimeout(() => {
-      resolve(fligtRecentHistory); 
+      resolve(hajjRcentHistory); 
     }, 1000); 
   });
 };
-const DashboardAccountFlight = () => {
+
+
+const DashboardAccountHajj = () => {
   return (
     <div>
-      <Dashboard/>
-      <DashboardChart/>
+    <HajjCard/>
+    <HajjChart/>
       <RecentHistory
       title="Recent Booking History"
       subtitle="Last week transaction history"
@@ -64,4 +69,4 @@ const DashboardAccountFlight = () => {
   )
 }
 
-export default DashboardAccountFlight
+export default DashboardAccountHajj

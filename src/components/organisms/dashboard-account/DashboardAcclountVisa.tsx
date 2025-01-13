@@ -1,11 +1,13 @@
 
 
 import React from 'react'
-import Dashboard from '../../molecules/dashboard-account/AccountCard'
+
 import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory'
 import { ColumnConfig } from '@/components/molecules/global/Table';
-import DashboardChart from '@/components/molecules/dashboard-account/DashboardChart';
-import { fligtRecentHistory } from '@/data/historyData';
+import VisaCard from '@/components/molecules/dashboard-account/VisaCard';
+import VisaChart from '@/components/molecules/dashboard-account/VisaChart';
+import { visaRcentHistory } from '@/data/historyData';
+
 
 
 const columns: ColumnConfig[] = [
@@ -43,15 +45,15 @@ const fetchRecentHistory = async (): Promise<any[]> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new Promise<any[]>((resolve) => {
     setTimeout(() => {
-      resolve(fligtRecentHistory); 
+      resolve(visaRcentHistory); 
     }, 1000); 
   });
 };
-const DashboardAccountFlight = () => {
+const DashboardAcclountVisa = () => {
   return (
     <div>
-      <Dashboard/>
-      <DashboardChart/>
+      <VisaCard/>
+   <VisaChart/>
       <RecentHistory
       title="Recent Booking History"
       subtitle="Last week transaction history"
@@ -64,4 +66,4 @@ const DashboardAccountFlight = () => {
   )
 }
 
-export default DashboardAccountFlight
+export default DashboardAcclountVisa

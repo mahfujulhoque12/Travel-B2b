@@ -5,6 +5,7 @@ import { FaAngleDown } from 'react-icons/fa6';
 import { PiListChecksFill } from 'react-icons/pi';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/style.css';
+import { FaCalendarAlt } from 'react-icons/fa';
 
 const useDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,13 +14,14 @@ const useDropdown = () => {
   const toggle = () => setIsOpen((prev) => !prev);
   const close = () => setIsOpen(false);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (ref.current && !ref.current.contains(event.target as Node)) {
-      close();
-    }
-  };
 
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        close();
+      }
+    };
+  
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
@@ -83,7 +85,7 @@ const Switcher = () => {
           }}
         >
           <Button
-            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-1 text-sm relative cursor-pointer flex items-center gap-1"
+            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1"
             onClick={languageDropdown.toggle}
             aria-haspopup="true"
             aria-expanded={languageDropdown.isOpen}
@@ -111,10 +113,11 @@ const Switcher = () => {
         {/* Day Picker Section */}
         <div className="relative">
           <Button
-            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-1 text-sm relative cursor-pointer"
+            className="text-[#8391A1]  bg-[#F4F7FE] rounded p-2.5 text-sm relative cursor-pointer"
             onClick={toggleCalendar}
           >
-            {selected ? selected.toLocaleDateString() : 'Pick a day'}
+            {selected ? selected.toLocaleDateString() : '8/12/12'}
+            <FaCalendarAlt />
           </Button>
 
           {/* Calendar dropdown */}

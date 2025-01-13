@@ -11,6 +11,11 @@ import { TiWorldOutline } from "react-icons/ti";
 import { FaCar } from "react-icons/fa";
 import { PiMosqueThin } from "react-icons/pi";
 import DashboardAccountFlight from "./DashboardAccountFlight";
+import DashboardAccountHotel from "./DashboardAccountHotel";
+import DashboardAccountPackage from "./DashboardAccountPackage";
+import DashboardAcclountVisa from "./DashboardAcclountVisa";
+import DashboardAccountCar from "./DashboardAccountCar";
+import DashboardAccountHajj from "./DashboardAccountHajj";
 
 const tabs = [
   { label: "Flight", icon: <LuPlaneTakeoff size={20} /> },
@@ -30,19 +35,18 @@ const DashboardAccountWrapper: React.FC = () => {
         return <DashboardAccountFlight />;
 
       case 1:
-        return <div>two</div>;
-
+        return <DashboardAccountHotel/>
       case 2:
-        return <div>three</div>;
+        return <DashboardAccountPackage/>
 
       case 3:
-        return <div>four</div>;
+        return <DashboardAcclountVisa/>
 
       case 4:
-        return <div>five</div>;
+        return <DashboardAccountCar/>
 
       case 5:
-        return <div>six</div>;
+        return <DashboardAccountHajj/>
       default:
         return null;
     }

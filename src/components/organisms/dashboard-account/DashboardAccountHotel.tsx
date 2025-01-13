@@ -1,11 +1,9 @@
-
-
 import React from 'react'
-import Dashboard from '../../molecules/dashboard-account/AccountCard'
-import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory'
+import HotelCard from '../../molecules/dashboard-account/HotelCard'
+import HotelChart from '@/components/molecules/dashboard-account/HotelChart'
 import { ColumnConfig } from '@/components/molecules/global/Table';
-import DashboardChart from '@/components/molecules/dashboard-account/DashboardChart';
-import { fligtRecentHistory } from '@/data/historyData';
+import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory';
+import { hotelRcentHistory } from '@/data/historyData';
 
 
 const columns: ColumnConfig[] = [
@@ -43,16 +41,17 @@ const fetchRecentHistory = async (): Promise<any[]> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new Promise<any[]>((resolve) => {
     setTimeout(() => {
-      resolve(fligtRecentHistory); 
+      resolve(hotelRcentHistory); 
     }, 1000); 
   });
 };
-const DashboardAccountFlight = () => {
+
+const DashboardAccountHotel = () => {
   return (
     <div>
-      <Dashboard/>
-      <DashboardChart/>
-      <RecentHistory
+        <HotelCard/>
+        <HotelChart/>
+        <RecentHistory
       title="Recent Booking History"
       subtitle="Last week transaction history"
       columns={columns}
@@ -64,4 +63,4 @@ const DashboardAccountFlight = () => {
   )
 }
 
-export default DashboardAccountFlight
+export default DashboardAccountHotel

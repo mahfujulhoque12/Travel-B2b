@@ -1,11 +1,13 @@
 
 
 import React from 'react'
-import Dashboard from '../../molecules/dashboard-account/AccountCard'
+
 import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory'
 import { ColumnConfig } from '@/components/molecules/global/Table';
-import DashboardChart from '@/components/molecules/dashboard-account/DashboardChart';
-import { fligtRecentHistory } from '@/data/historyData';
+import PackageCard from '@/components/molecules/dashboard-account/PackageCard';
+import PackageChart from '@/components/molecules/dashboard-account/PackageChart';
+import { packageRcentHistory } from '@/data/historyData';
+
 
 
 const columns: ColumnConfig[] = [
@@ -38,20 +40,22 @@ const columns: ColumnConfig[] = [
 ];
 
 
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fetchRecentHistory = async (): Promise<any[]> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new Promise<any[]>((resolve) => {
     setTimeout(() => {
-      resolve(fligtRecentHistory); 
-    }, 1000); 
+      resolve(packageRcentHistory); // Ensure `carRecentHistory` is compatible with `any[]`
+    }, 1000); // Simulate a delay
   });
 };
-const DashboardAccountFlight = () => {
+
+const DashboardAccountPackage = () => {
   return (
     <div>
-      <Dashboard/>
-      <DashboardChart/>
+      <PackageCard/>
+      <PackageChart/>
       <RecentHistory
       title="Recent Booking History"
       subtitle="Last week transaction history"
@@ -64,4 +68,4 @@ const DashboardAccountFlight = () => {
   )
 }
 
-export default DashboardAccountFlight
+export default DashboardAccountPackage

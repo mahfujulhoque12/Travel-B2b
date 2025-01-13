@@ -1,12 +1,9 @@
-
-
-import React from 'react'
-import Dashboard from '../../molecules/dashboard-account/AccountCard'
-import RecentHistory from '@/components/molecules/dashboard-account/RecentHistory'
-import { ColumnConfig } from '@/components/molecules/global/Table';
-import DashboardChart from '@/components/molecules/dashboard-account/DashboardChart';
-import { fligtRecentHistory } from '@/data/historyData';
-
+import React from "react";
+import RecentHistory from "@/components/molecules/dashboard-account/RecentHistory";
+import CarCard from "@/components/molecules/dashboard-account/CarCard";
+import CarChart from "@/components/molecules/dashboard-account/CarChart";
+import { ColumnConfig } from "@/components/molecules/global/Table";
+import { carRecentHistory } from "@/data/historyData";
 
 const columns: ColumnConfig[] = [
   { key: "issueDate", type: "text", label: "Issue Date" },
@@ -22,7 +19,7 @@ const columns: ColumnConfig[] = [
     label: "PNR",
     buttonProps: {
       labelKey: "pnr",
-      onClick: () => alert(`Primary Action clicked for`),
+      onClick: (pnr: string) => alert(`Primary Action clicked for PNR: ${pnr}`),
       className: "bg-[#1768D0] p-1 text-white",
     },
   },
@@ -33,35 +30,35 @@ const columns: ColumnConfig[] = [
     type: "select",
     label: "Action",
     selectOptions: ["Confirm", "Pending", "Delete", "Draft"],
-    onSelectChange: () => {},
+    onSelectChange: (value: string) => console.log(`Action changed to: ${value}`),
   },
 ];
-
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fetchRecentHistory = async (): Promise<any[]> => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return new Promise<any[]>((resolve) => {
     setTimeout(() => {
-      resolve(fligtRecentHistory); 
-    }, 1000); 
+      resolve(carRecentHistory); // Ensure `carRecentHistory` is compatible with `any[]`
+    }, 1000); // Simulate a delay
   });
 };
-const DashboardAccountFlight = () => {
+
+const DashboardAccountCar = () => {
   return (
     <div>
-      <Dashboard/>
-      <DashboardChart/>
+      <CarCard />
+      <CarChart />
       <RecentHistory
-      title="Recent Booking History"
-      subtitle="Last week transaction history"
-      columns={columns}
-      fetchData={fetchRecentHistory}
-      buttonLabel="View All"
-      onButtonClick={() => console.log("View All Clicked")}
-    />
+        title="Recent Booking History"
+        subtitle="Last week transaction history"
+        columns={columns}
+        fetchData={fetchRecentHistory} // Correctly returns a Promise
+        buttonLabel="View All"
+        onButtonClick={() => console.log("View All Clicked")}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default DashboardAccountFlight
+export default DashboardAccountCar;

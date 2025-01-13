@@ -1,4 +1,3 @@
-
 import CardTitle from "@/components/atoms/CardTitle";
 import Span from "@/components/atoms/Span";
 import React, { useState, useEffect } from "react";
@@ -12,22 +11,29 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import Switcher from "../dashboard/Switcher";
-
-const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/dashboard-flight`;
+import Switcher from "../dashboard-account/Switcher";
 
 type DataItem = {
-  name: string;
-  Income: number;
-  Expense: number;
-  amt: string;
+  [key: string]: string | number; // Generalize the data item structure
 };
 
-const FirstChart: React.FC = () => {
-  
+type FirstChartProps = {
+  apiUrl: string;
+  chartDataKeys: string[]; // Data keys to be used in BarChart
+  title: string;
+  incomeLabel: string;
+  expenseLabel: string;
+  currencyFormatter: (value: number) => string; // Formatter for Y-axis and Tooltip
+};
 
-
-
+const FirstChart: React.FC<FirstChartProps> = ({
+  apiUrl,
+  chartDataKeys,
+  title,
+  incomeLabel,
+  expenseLabel,
+  currencyFormatter,
+}) => {
   const [data, setData] = useState<DataItem[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -35,15 +41,14 @@ const FirstChart: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(API_URL);
+        const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const result = await response.json();
         setData(result);
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      } catch (err: any ) {
-     
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      } catch (err: any) {
         setError(err.message);
       } finally {
         setIsLoading(false);
@@ -51,27 +56,25 @@ const FirstChart: React.FC = () => {
     };
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
   return (
-    
     <div className="h-[450px] flex flex-col">
-      <Switcher/>
+      <Switcher />
 
       {/* Title and Bar Legend Section */}
       <div className="h-[50px] flex items-center justify-between px-4 mb-3">
         <CardTitle className="text-2xl font-semibold text-[#243045]">
-          $520.15 /{" "}
-          <Span className="text-sm font-normal text-[#8391A1]">$454.002</Span>
+          {title}
         </CardTitle>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-[#8884d8]"></div>
-            <Span>Income</Span>
+            <Span>{incomeLabel}</Span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 bg-[#82ca9d]"></div>
-            <Span>Expense</Span>
+            <Span>{expenseLabel}</Span>
           </div>
         </div>
       </div>
@@ -79,7 +82,9 @@ const FirstChart: React.FC = () => {
       {/* Chart Section */}
       <div className="flex-grow">
         {isLoading ? (
-          <div className="text-center">Loading...</div>
+          <div className="flex justify-center items-center h-full">
+            <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
         ) : error ? (
           <div className="text-center text-red-500">{error}</div>
         ) : (
@@ -95,13 +100,16 @@ const FirstChart: React.FC = () => {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
-              <YAxis
-                tickFormatter={(value) => `${value / 1000}k $`} // Format Y-axis ticks
-              />
-              <Tooltip formatter={(value) => `${value} $`} />{" "}
-              {/* Format tooltip values */}
-              <Bar dataKey="Income" fill="#8884d8" />
-              <Bar dataKey="Expense" fill="#82ca9d" />
+              <YAxis tickFormatter={currencyFormatter} />
+              <Tooltip formatter={currencyFormatter} />
+              {chartDataKeys.map((key, index) => (
+                <Bar
+                  key={key}
+                  dataKey={key}
+                  fill={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
+                  barSize={18}
+                />
+              ))}
             </BarChart>
           </ResponsiveContainer>
         )}

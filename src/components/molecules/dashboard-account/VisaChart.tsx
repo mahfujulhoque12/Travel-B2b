@@ -10,8 +10,9 @@ const VisaChart = () => {
           <FirstChart
           apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard-visa`}
           chartDataKeys={['Income', 'Expense']}
-          title="$520.15 / $454.002"
+          title="$520.15"
           incomeLabel="Income"
+          subtitle='/$454.002'
           expenseLabel="Expense"
           currencyFormatter={currencyFormatter}
         />

@@ -10,7 +10,8 @@ const HotelChart = () => {
           <FirstChart
           apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard-hotel`}
           chartDataKeys={['Income', 'Expense']}
-          title="$520.15 / $454.002"
+          title="$520.15"
+            subtitle='/$454.002'
           incomeLabel="Income"
           expenseLabel="Expense"
           currencyFormatter={currencyFormatter}

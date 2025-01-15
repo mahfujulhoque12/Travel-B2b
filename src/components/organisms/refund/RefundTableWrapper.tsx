@@ -52,11 +52,11 @@ const tabs = [
 
 
 const apiUrls = [
-  `${process.env.NEXT_PUBLIC_API_URL}/api/refund-flight`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/refund-hotel`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/refund-package`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/refund-car`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/hajj-umrah`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/refund/refund-flight`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/refund/refund-hotel`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/refund/refund-package`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/refund/refund-car`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/refund/refund-hajj`,
 ];
 
 

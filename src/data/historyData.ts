@@ -647,3 +647,151 @@ export const visaRcentHistory = [
       action: 'select action',
     },
     ];
+
+
+
+// account dashboard data
+
+export const accountDashboardData = [
+  {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Doe',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'hold',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Jon Here',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'booked',
+    },
+    {
+      invoiceId: 'LIN125485',
+      customerName: 'Smith',
+      trxDate: '13/02/2022',
+      totalPrice: '$500',
+      status: 'cancelled',
+    },
+    ];
+

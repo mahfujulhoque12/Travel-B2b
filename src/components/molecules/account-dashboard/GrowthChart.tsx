@@ -3,7 +3,7 @@ import { PieChart, Pie, ResponsiveContainer, Cell, Tooltip } from "recharts";
 import GrowthChartTop from "./GrowthChartTop";
 
 
-const apiUrl =`${process.env.NEXT_PUBLIC_API_URL}/api/groth-chart`;
+const apiUrl =`${process.env.NEXT_PUBLIC_API_URL}/api/v1/account-dashboard/groth-chart`;
 
 // Custom function to render labels on each slice
 

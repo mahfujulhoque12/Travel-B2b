@@ -2,14 +2,16 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoMdSearch } from "react-icons/io";
 import { CiMail } from "react-icons/ci";
-import { IoMoonOutline } from "react-icons/io5";
+
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { FaAngleDown } from "react-icons/fa6";
 import Image from "next/image";
 import flag from "/public/topbar/flag.svg";
 import admin from "/public/topbar/admin.png";
 import { Button } from "@/components/atoms/Button";
+import Theme from "../global/Theme";
 const useDropdown = () => {
+
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -33,6 +35,9 @@ const useDropdown = () => {
 };
 
 const TopRight: React.FC = () => {
+  
+
+
   const languageDropdown = useDropdown();
   const adminDropdown = useDropdown();
   const [selectedLanguage, setSelectedLanguage] = useState("English");
@@ -43,20 +48,20 @@ const TopRight: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center gap-5 justify-end">
+    <div className={` flex items-center gap-5 justify-end  dark:text-white`}>
       <div className="flex gap-5 items-center">
         {/* Action Buttons */}
-        <div className="flex gap-2">
-          <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full">
+        <div className="flex gap-2  dark:text-white">
+          <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full  dark:text-white">
             <IoMdSearch size={18} />
           </Button>
-          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full">
+          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:text-white">
             <CiMail size={18} />
             <span className="bg-[#f23e43] text-white p-[2px] text-[6px] rounded-full absolute top-0 right-0">
               99+
             </span>
           </Button>
-          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full">
+          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:text-white">
             <IoMdNotificationsOutline size={18} />
             <span className="bg-[#f23e43] text-white p-[2px] text-[6px] rounded-full absolute top-0 right-0">
               99+
@@ -66,7 +71,7 @@ const TopRight: React.FC = () => {
 
         {/* Language Dropdown */}
         <div
-          className="flex items-center gap-1 relative"
+          className="flex items-center gap-1 relative "
           ref={languageDropdown.ref}
           onKeyDown={(event) => {
             if (event.key === "Escape") languageDropdown.close();
@@ -74,7 +79,7 @@ const TopRight: React.FC = () => {
         >
           <Image src={flag} width={50} height={50} alt="flag" className="w-6 h-5" />
           <Button
-            className="text-[#8391A1] bg-white rounded p-1 text-sm relative cursor-pointer"
+            className="text-[#8391A1] bg-white rounded p-1 text-sm relative cursor-pointer dark:bg-darkButtonBg dark:text-white"
             onClick={languageDropdown.toggle}
             aria-haspopup="true"
             aria-expanded={languageDropdown.isOpen}
@@ -85,7 +90,7 @@ const TopRight: React.FC = () => {
             </span>
           </Button>
           {languageDropdown.isOpen && (
-            <ul className="absolute animate-slide-down bg-white shadow-md rounded w-24 top-10  border z-10">
+            <ul className="absolute animate-slide-down bg-white shadow-md rounded w-24 top-10  border z-10 ">
               {["English", "Bangla", "Arabic"].map((language) => (
                 <li
                   key={language}
@@ -101,18 +106,13 @@ const TopRight: React.FC = () => {
       </div>
 
         {/* moon */}
-        <Button
-          className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full"
-         
-        >
-          <IoMoonOutline size={18} />
-        </Button>
+        <Theme/>
 
       {/* Admin Dropdown */}
       <div className="flex items-center gap-3 relative" ref={adminDropdown.ref}>
       <Image src={admin} width={50} height={50} alt="flag" className="w-8 h-8 cursor-pointer"  onClick={adminDropdown.toggle}/>
         <Button
-          className="flex items-center text-sm text-[#8391A1]"
+          className="flex items-center text-sm text-[#8391A1] dark:text-white"
           onClick={adminDropdown.toggle}
           aria-haspopup="true"
           aria-expanded={adminDropdown.isOpen}

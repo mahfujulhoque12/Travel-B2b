@@ -40,10 +40,10 @@ const GrowthChartTop = () => {
   return (
     <div className='p-4 flex items-center justify-between'>
     <div>
-      <CardTitle className="lg:text-xl font-semibold text-[#243045]">
+      <CardTitle className="lg:text-xl font-semibold text-[#243045] dark:text-white">
         Income Growth
       </CardTitle>
-      <Span className='font-normal text-base text-[#797979]'>
+      <Span className='font-normal text-base text-[#797979] dark:text-gray-400'>
         6 month Income growth
       </Span>
     </div>

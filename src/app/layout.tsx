@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5 dark:bg-darkMainBg`}
       >
         <div className="flex space-x-5">
           <Sidebar
@@ -46,7 +46,7 @@ export default function RootLayout({
             <div className="flex flex-col h-full space-y-5">
               <Topbar />
 
-              <main className="flex-grow overflow-y-auto rounded-md space-y-5 bg-white table-container">
+              <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container">
                 <div>{children}</div>
               </main>
             </div>

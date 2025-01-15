@@ -8,10 +8,10 @@ const Breadcrumb: React.FC = () => {
   const pathSegments = pathname.split('/').filter((segment) => segment);
 
   return (
-    <nav aria-label="Breadcrumb" >
+    <nav aria-label="Breadcrumb " >
       <ul className="flex items-center  text-sm text-gray-600 font-medium">
         <li>
-          <Link href="/" className="hover:text-blue-600 font-medium text-sm">
+          <Link href="/" className="hover:text-blue-600 font-medium text-sm dark:text-white">
             Home
           </Link>
         </li>
@@ -20,14 +20,14 @@ const Breadcrumb: React.FC = () => {
           const isLast = index === pathSegments.length - 1;
 
           return (
-            <li key={href} className="flex items-center">
-              <span className="mx-1 text-gray-400 font-medium text-sm">/</span>
+            <li key={href} className="flex items-center dark:text-white">
+              <span className="mx-1 text-gray-400 font-medium text-sm dark:text-white">/</span>
               {isLast ? (
-                <span className="text-blue-600 font-medium capitalize text-sm">
+                <span className="text-blue-600 font-medium capitalize text-sm dark:text-white">
                   {segment.replace('-', ' ')}
                 </span>
               ) : (
-                <Link href={href} className="hover:text-blue-600 capitalize font-medium text-sm">
+                <Link href={href} className="hover:text-blue-600 capitalize font-medium text-sm dark:text-white">
                   {segment.replace('-', ' ')}
                 </Link>
               )}

@@ -20,7 +20,7 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = ({
 }) => {
   return (
     <div
-      className="sticky top-0 flex items-center justify-between p-4 border-b-2 border-gray-100 flex-shrink-0"
+      className="sticky top-0 flex items-center justify-between p-4 border-b-2 border-gray-100 dark:border-gray-900 flex-shrink-0"
       onMouseEnter={(e) => {
         e.stopPropagation();
       }}

@@ -3,7 +3,7 @@ import type { Config } from "tailwindcss";
 import plugin from "tailwindcss/plugin";
 
 export default {
-  darkMode: ["class"],
+  darkMode: ["class"], // Keep this one
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -21,12 +21,14 @@ export default {
         "slide-down": "slideDown 0.3s ease-out",
       },
       colors: {
+   
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
@@ -71,7 +73,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        darkMainBg: "#111827", 
+        darkPrimaryBg:"#1E293B",
+        darkButtonBg:"#F4F7FE4D",
       },
+ 
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

@@ -65,7 +65,7 @@ const TopExpence: React.FC = ({
           {expence.slice(0, visibleCount).map((expen) => (
             <div
               key={expen.id}
-              className="flex items-center mt-5 justify-between border-b-2 border-b-[#DCDCDC] pb-2"
+              className="flex items-center mt-5 justify-between border-b-2 border-b-[#DCDCDC] pb-2 dark:border-gray-700"
             >
               <div className="flex items-center gap-3">
               
@@ -75,10 +75,10 @@ const TopExpence: React.FC = ({
                   </div>
             
                 <div className="flex flex-col">
-                  <Span className="text-sm font-semibold text-[#243045]">
+                  <Span className="text-sm font-semibold text-[#243045] dark:text-white">
                     {expen.invoiceId}
                   </Span>
-                  <Span className="text-xs font-semibold text-[#7C7C7C]">
+                  <Span className="text-xs font-semibold text-[#7C7C7C] dark:text-white">
                     {expen.date}
                   </Span>
                 </div>

@@ -63,7 +63,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   return (
     <div
       className={cn(
-        "rounded-md fixed top-5 left-5 z-[999] px-2 bg-white text-[#243045] transition-all duration-300",
+        "rounded-md fixed top-5 left-5 z-[999] px-2 bg-white text-[#243045] transition-all duration-300 dark:bg-darkPrimaryBg ",
         isOpen ? "w-56" : "w-20"
       )}
       style={{ height: "calc(100vh - 40px)" }}
@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <SidebarHeader isOpen={isOpen} toggleAppSlidebar={toggleAppSlidebar} />
 
         {/* Navigation Items */}
-        <nav className="flex-grow overflow-y-auto space-y-2 nav-no-scrollbar">
+        <nav className="flex-grow overflow-y-auto space-y-2 nav-no-scrollbar dark:text-white">
           {items.map((item, index) => {
             const Icon = item.icon;
             const isActive = pathname === item.href;
@@ -85,9 +85,11 @@ const Sidebar: React.FC<SidebarProps> = ({
                 key={index}
                 href={item.href}
                 className={cn(
-                  "group relative flex items-center gap-3 p-3 text-sm font-normal rounded-md transition-all duration-200",
+                  "group relative flex items-center gap-3 p-3 text-sm font-normal rounded-md transition-all duration-200 dark:text-white",
                   "hover:text-white hover:bg-[#1768D0]",
-                  isActive ? "bg-[#1768D0] text-white" : "text-gray-700",
+                  isActive
+                    ? "bg-[#1768D0] text-white dark:text-white"
+                    : "text-gray-700 dark:text-white",
                   !isOpen && "justify-center"
                 )}
               >
@@ -95,12 +97,12 @@ const Sidebar: React.FC<SidebarProps> = ({
                   className={cn(
                     "flex items-center justify-center transition-colors duration-200",
                     isActive
-                      ? "fill-white text-white"
-                      : "fill-gray-900 text-black group-hover:fill-white group-hover:text-white"
+                      ? "text-white dark:text-white"
+                      : "text-gray-900 group-hover:text-white dark:text-white dark:group-hover:text-white"
                   )}
                 >
                   <Icon
-                    fill={isActive ? "white" : "black"}
+                    fill="currentColor" // Icon dynamically inherits color
                     className="h-5 w-5 transition-colors duration-200"
                   />
                 </div>
@@ -108,10 +110,10 @@ const Sidebar: React.FC<SidebarProps> = ({
                 {isOpen && (
                   <span
                     className={cn(
-                      "transition-opacity duration-200",
+                      "transition-opacity duration-200 dark:text-white",
                       isActive
                         ? "text-white"
-                        : "text-gray-700 group-hover:text-white"
+                        : "text-gray-700 group-hover:text-white dark:text-white"
                     )}
                   >
                     {item.label}
@@ -123,17 +125,21 @@ const Sidebar: React.FC<SidebarProps> = ({
         </nav>
 
         {/* Logout Section */}
-        <div className="flex-shrink-0 border-t-2 py-3 border-gray-100">
-          <Link
-            href="#"
-            className={cn(
-              "group flex items-start gap-3 p-3 text-xs font-normal rounded-md transition-all duration-300 hover:text-white hover:bg-[#1768D0]",
-              pathname === "#" && "bg-[#1768D0] text-white",
-              !isOpen && "justify-center"
-            )}
-          >
-            <LogoutIcon /> {isOpen && "Logout"}
-          </Link>
+        <div className="flex-shrink-0 border-t-2 py-3 border-gray-100 dark:border-gray-900">
+        <Link
+  href="#"
+  className={cn(
+    "group flex items-start gap-3 p-3 text-xs font-normal rounded-md transition-all duration-300 hover:text-white hover:bg-[#1768D0]",
+    pathname === "#" && "bg-[#1768D0] text-white",
+    !isOpen && "justify-center",
+    "text-gray-700 dark:text-white" // Adjusting text color in dark mode
+  )}
+>
+  <LogoutIcon className="text-gray-700 dark:text-white" /> {/* Added text color control */}
+  {isOpen && "Logout"}
+</Link>
+
+
         </div>
       </div>
     </div>

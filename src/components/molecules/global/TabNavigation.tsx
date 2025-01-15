@@ -27,7 +27,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
   return (
     <nav
       className={cn(
-        "flex border-b-2 border-[#D3E4FB80] space-x-5 sticky top-0 z-[10] bg-white",
+        "flex border-b-2 border-[#D3E4FB80] space-x-5 sticky top-0 z-[10] bg-white dark:bg-darkPrimaryBg dark:text-white dark:border-gray-900",
         isBackground && "gap-1"
       )}
     >
@@ -36,7 +36,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
           key={index}
           onClick={() => handleTabClick(index)}
           className={cn(
-            "relative px-4 py-3.5 text-base font-normal border-[#F4F7FE] text-center rounded-md flex gap-2 items-center",
+            "relative px-4 py-3.5 text-base font-normal border-[#F4F7FE] text-center rounded-md flex gap-2 items-center dark:text-white",
             isBackground
               ? activeTab === index
                 ? "bg-blue-gradient text-white"

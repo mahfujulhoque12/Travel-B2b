@@ -35,7 +35,7 @@ const fetchRecentHistory = async (): Promise<any[]> => {
 
 const AccountDashboardWrapper = () => {
   return (
-    <div className='p-6'>
+    <div className='p-6 dark:bg-black'>
       <AccountCard/>
       <AccountChart/>
 

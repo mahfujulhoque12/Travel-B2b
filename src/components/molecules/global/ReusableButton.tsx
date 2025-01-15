@@ -12,7 +12,7 @@ const ReusableButton: React.FC<ReusableButtonProps> = ({
   className,
 }) => {
   return (
-    <button onClick={onClick} className={`rounded ${className}`}>
+    <button onClick={onClick} className={`rounded  ${className}`}>
       {label}
     </button>
   );

@@ -99,14 +99,16 @@ const GrowthChart = () => {
           <PieChart>
             {/* Add the central text */}
             <text
-              x="50%"
-              y="50%"
-              textAnchor="middle"
-              dominantBaseline="central"
-              style={{ fontSize: "12px", fontWeight: "bold", fill: "#333" }}
-            >
-              Total Percent
-            </text>
+  x="50%"
+  y="50%"
+  textAnchor="middle"
+  dominantBaseline="central"
+  style={{ fontSize: "12px", fontWeight: "bold" }}
+  className="fill-gray-800 dark:fill-white"
+>
+  Total Percent
+</text>
+
             <Pie
              data={data || []}
              cx="50%"

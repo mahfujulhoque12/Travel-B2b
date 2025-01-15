@@ -72,7 +72,7 @@ const SecChart: React.FC<SecChartProps> = ({
       <div className="px-4 flex items-center justify-between mb-3">
         {/* Title Section */}
         <div>
-          <span className="text-lg font-normal text-[#243045]">Income/Expense</span>
+          <span className="text-lg font-normal text-[#243045] dark:text-white">Income/Expense</span>
         </div>
 
         {/* Switch and Dropdown Section */}

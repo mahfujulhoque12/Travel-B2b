@@ -45,7 +45,7 @@ const ChartDropdownCom = () => {
     }}
   >
     <Button
-      className="text-[#8391A1]  bg-[#F4F7FE] rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1"
+      className="text-[#8391A1]  bg-[#F4F7FE] dark:bg-darkButtonBg dark:text-white rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1"
       onClick={chartDropdown.toggle}
       aria-haspopup="true"
       aria-expanded={chartDropdown.isOpen}
@@ -56,7 +56,7 @@ const ChartDropdownCom = () => {
     </Button>
 
     {chartDropdown.isOpen && (
-      <ul className="absolute animate-slide-down bg-white shadow-md rounded w-24 top-10 border z-10">
+      <ul className="absolute animate-slide-down bg-white  shadow-md rounded w-24 top-10 border z-10">
         {['Orders', 'Cancel', 'Pending'].map((chart) => (
           <li
             key={chart}

@@ -48,12 +48,12 @@ const tabs = [
 ];
 
 const apiUrls: string[] = [
-  `${process.env.NEXT_PUBLIC_API_URL}/api/flight-booking`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/hotel-booking`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/package-booking`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/visa`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/car-booking`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/hajj-umrah`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/flight-booking`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/hotel-booking`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/package-booking`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/visa`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/car-booking`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/booking/hajj-umrah`,
 ];
 
 const BookingTableWrapper: React.FC = () => {

@@ -26,7 +26,7 @@ const TopupTableWrapper = () => {
   const exportRef = useRef<ExportRef | null>(null);
   const limit = 12;
   
-  const TopupApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/topup`;
+  const TopupApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/topup`;
   
   const { data, isLoading, error, totalPages } = usePaginatedFetchData(
     [TopupApiUrl],

@@ -24,7 +24,7 @@ const TransectionTableWraper = () => {
    const [showPrint, setShowPrint] = useState(false);
    const exportRef = useRef<ExportRef | null>(null);
   const limit = 12;
-     const TransectionApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/transection`;
+     const TransectionApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/transection`;
 
   const { data, isLoading, error, totalPages } = usePaginatedFetchData(
     [TransectionApiUrl],

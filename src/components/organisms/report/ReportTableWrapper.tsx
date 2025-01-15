@@ -54,11 +54,11 @@ const tabs = [
 
 
 const apiUrls = [
-  `${process.env.NEXT_PUBLIC_API_URL}/api/report-flight`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/report-hotel`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/report-package`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/report-car`,
-  `${process.env.NEXT_PUBLIC_API_URL}/api/report-hajj`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/report/report-flight`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/report/report-hotel`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/report/report-package`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/report/report-car`,
+  `${process.env.NEXT_PUBLIC_API_URL}/api/v1/report/report-hajj`,
 ];
 
 const ReportTableWrapper:React.FC = () => {

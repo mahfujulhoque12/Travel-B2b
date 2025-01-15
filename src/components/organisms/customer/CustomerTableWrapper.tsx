@@ -24,7 +24,7 @@ const CustomerTableWrapper = () => {
   const exportRef = useRef<ExportRef | null>(null);
   const limit = 12;
 
-  const CustomerApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/customer`;
+  const CustomerApiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/customer`;
 
   const { data, isLoading, error, totalPages } = usePaginatedFetchData(
     [CustomerApiUrl],

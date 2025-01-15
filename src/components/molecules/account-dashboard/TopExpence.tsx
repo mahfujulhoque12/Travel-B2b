@@ -1,43 +1,31 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
+
 import CardTitle from "@/components/atoms/CardTitle";
 import Span from "@/components/atoms/Span";
 import { Button } from "@/components/atoms/Button";
+import { FaSackDollar } from "react-icons/fa6";
 
-type TravelerType = {
-    id: number;
-    name: string;
-    image: string;
-    amount: string;
-    email: string;
-    [key: string]: string | number; // Allow string keys
-  };
 
-type TravelerListProps = {
-  apiUrl: string;
-  initialCount?: number; // Default to 6 if not provided
-  nameKey?: string; // Key for the traveler name field
-  emailKey?: string; // Key for the traveler email field
-  amountKey?: string; // Key for the traveler amount field
-  imageKey?: string; // Key for the traveler image field
-  title?: string; //
-};
 
-const TravelerList: React.FC<TravelerListProps> = ({
-  apiUrl,
-  initialCount = 6,
-  nameKey = "name",
-  emailKey = "email",
-  amountKey = "amount",
-  imageKey = "image",
-  title="Travelers",
+type ExpenceType ={
+  id:number;
+  invoiceId:string;
+  amount:number;
+  date:string;
+}
+
+const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/account-dashboard/top-expence`;
+const initialCount =5
+
+const TopExpence: React.FC = ({
+ 
 }) => {
-  const [travelers, setTravelers] = useState<TravelerType[] | []>([]);
+  const [expence, setExpence] = useState<ExpenceType[] | []>([]);
   const [visibleCount, setVisibleCount] = useState(initialCount);
   const [isLoading, setIsLoading] = useState(true);
 
   const handleShowMore = () => {
-    setVisibleCount(travelers.length);
+    setVisibleCount(expence.length);
   };
 
   const handleShowLess = () => {
@@ -47,19 +35,26 @@ const TravelerList: React.FC<TravelerListProps> = ({
   useEffect(() => {
     setIsLoading(true);
     fetch(apiUrl)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then((data) => {
-        setTravelers(data);
+        console.log("Fetched data:", data);
+        setExpence(data);
         setIsLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        console.error("Error fetching data:", error);
         setIsLoading(false);
       });
-  }, [apiUrl]);
-
+  }, []);
+  
   return (
     <div className="p-4">
-      <CardTitle className="font-semibold text-xl">{title}</CardTitle>
+      <CardTitle className="font-semibold text-xl">Top expenses </CardTitle>
 
       {isLoading ? (
         <div className="flex justify-center items-center mt-5">
@@ -67,43 +62,36 @@ const TravelerList: React.FC<TravelerListProps> = ({
         </div>
       ) : (
         <>
-          {travelers.slice(0, visibleCount).map((traveler) => (
+          {expence.slice(0, visibleCount).map((expen) => (
             <div
-              key={traveler.id}
+              key={expen.id}
               className="flex items-center mt-5 justify-between border-b-2 border-b-[#DCDCDC] pb-2"
             >
               <div className="flex items-center gap-3">
-                {traveler[imageKey] ? (
-                 <Image
-                 src={traveler[imageKey as keyof TravelerType] as string}
-                 alt={traveler[nameKey as keyof TravelerType] as string}
-                 className="rounded-full w-[30px] h-[32px]"
-                 width={30}
-                 height={32}
-               />
-                ) : (
-                  <div className="rounded-full w-[30px] h-[32px] bg-gray-300 flex items-center justify-center">
-                    <span className="text-sm text-white">N/A</span>
+              
+
+                  <div className="rounded-full w-[30px] h-[32px] bg-gray-300 text-[#7549FF] flex items-center justify-center">
+                  <FaSackDollar />
                   </div>
-                )}
+            
                 <div className="flex flex-col">
                   <Span className="text-sm font-semibold text-[#243045]">
-                    {traveler[nameKey]}
+                    {expen.invoiceId}
                   </Span>
                   <Span className="text-xs font-semibold text-[#7C7C7C]">
-                    {traveler[emailKey]}
+                    {expen.date}
                   </Span>
                 </div>
               </div>
               <div>
-                <Span className="text-base font-semibold text-[#243045]">
-                  {traveler[amountKey]}
-                </Span>
+                <Button className="text-sm font-semibold text-[#7549FF] bg-[#E8E1FD] px-2 py-1.5 rounded-md hover:bg-[#7549FF] hover:text-[#E8E1FD] transition-all duration-300">
+                  {expen.amount}
+                </Button>
               </div>
             </div>
           ))}
 
-          {visibleCount < travelers.length ? (
+          {visibleCount < expence.length ? (
             <Button
               className="bg-[#EDF2FD] w-full mt-4 py-2 rounded text-[#257CEB] font-bold hover:bg-[#257CEB] hover:text-[#EDF2FD] duration-300"
               onClick={handleShowMore}
@@ -124,4 +112,4 @@ const TravelerList: React.FC<TravelerListProps> = ({
   );
 };
 
-export default TravelerList;
+export default TopExpence;

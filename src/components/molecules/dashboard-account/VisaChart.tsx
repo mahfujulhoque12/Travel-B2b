@@ -8,7 +8,7 @@ const VisaChart = () => {
       <div className='flex gap-4 mt-5 '>
           <div className='basis-[70%] shadow-md rounded-md py-3'> 
           <FirstChart
-          apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/dashboard-visa`}
+          apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/v1/dashboard/dashboard-visa`}
           chartDataKeys={['Income', 'Expense']}
           title="$520.15"
           incomeLabel="Income"
@@ -19,9 +19,10 @@ const VisaChart = () => {
           </div>
           <div className='basis-[30%] shadow-md rounded'>
           <TravelerList
-        apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/visa-current-travel`}
+        apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/v1/dashboard/visa-current-travel`}
         initialCount={6}
         nameKey="name"
+        title='Current Travelers'
         emailKey="email"
         amountKey="amount"
         imageKey="image"

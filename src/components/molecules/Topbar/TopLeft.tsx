@@ -15,7 +15,7 @@ const TopLeft = () => {
 
       <div className="flex items-center mt-1.5  gap-2">
         <Span className="flex items-center text-[#8391A1] text-sm font-normal gap-1">
-          <SearchIcons className="w-3" /> search <FaAnglesRight />
+          <SearchIcons  /> search <FaAnglesRight />
         </Span>
         <Button className="text-sm font-semibold text-[#257CEB]">
           <Breadcrumb />

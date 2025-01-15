@@ -70,7 +70,7 @@ const TravelerList: React.FC<TravelerListProps> = ({
           {travelers.slice(0, visibleCount).map((traveler) => (
             <div
               key={traveler.id}
-              className="flex items-center mt-5 justify-between border-b-2 border-b-[#DCDCDC] pb-2"
+              className="flex items-center mt-5 justify-between border-b-2 border-b-[#DCDCDC] dark:border-gray-700 pb-2"
             >
               <div className="flex items-center gap-3">
                 {traveler[imageKey] ? (
@@ -87,16 +87,16 @@ const TravelerList: React.FC<TravelerListProps> = ({
                   </div>
                 )}
                 <div className="flex flex-col">
-                  <Span className="text-sm font-semibold text-[#243045]">
+                  <Span className="text-sm font-semibold text-[#243045] dark:text-white">
                     {traveler[nameKey]}
                   </Span>
-                  <Span className="text-xs font-semibold text-[#7C7C7C]">
+                  <Span className="text-xs font-semibold text-[#7C7C7C] dark:text-white">
                     {traveler[emailKey]}
                   </Span>
                 </div>
               </div>
               <div>
-                <Span className="text-base font-semibold text-[#243045]">
+                <Span className="text-base font-semibold text-[#243045] dark:text-white">
                   {traveler[amountKey]}
                 </Span>
               </div>

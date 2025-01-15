@@ -11,6 +11,7 @@ import CustomerData from "./CustomerData";
 import { columns as customerColumn } from "./CustomerData";
 import Print from "@/components/molecules/global/Print";
 import Export from "@/components/molecules/global/Export";
+import { FaPlus } from "react-icons/fa6";
 
 // Define the type for the exportRef
 type ExportRef = {
@@ -68,13 +69,19 @@ const CustomerTableWrapper = () => {
       icon: <IoPrintOutline size={20} />,
       className: "bg-[#1768D0] hover:bg-[#2e77d7]",
     },
+    {
+      label: "Add",
+      onClick: handlePrint,
+      icon: <FaPlus  size={20} />,
+      className: "bg-[#1768D0] hover:bg-[#2e77d7]",
+    },
   ];
 
   if (isLoading) return <Loader />;
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="p-5 rounded-md ">
+    <div className="p-5 rounded-md dark:bg-darkPrimaryBg">
       <CustomerData
         data={data[CustomerApiUrl] || []}
         currentPage={currentPage}

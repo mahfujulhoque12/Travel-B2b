@@ -71,7 +71,7 @@ const FirstChart: React.FC<FirstChartProps> = ({
        <div className="px-4 flex items-center justify-between mb-3">
         {/* Title Section */}
         <div>
-          <span className="text-lg font-normal text-[#243045]">Income/Expense</span>
+          <span className="text-lg font-normal text-[#243045] dark:text-white">Income/Expense</span>
         </div>
 
         {/* Switch and Dropdown Section */}
@@ -92,7 +92,7 @@ const FirstChart: React.FC<FirstChartProps> = ({
 
       {/* Title and Bar Legend Section */}
       <div className="h-[50px] flex items-center justify-between px-4 mb-3">
-        <CardTitle className="text-2xl font-semibold text-[#243045]">
+        <CardTitle className="text-2xl font-semibold text-[#243045] dark:text-white">
           {title}
           <Span className="text-sm text-[#8391A1] font-bold">{subtitle}</Span>
         </CardTitle>
@@ -130,9 +130,10 @@ const FirstChart: React.FC<FirstChartProps> = ({
                                 left: 20,
                                 bottom: 5,
                               }}
+                              className="dark:text-white"
                             >
-                              <CartesianGrid strokeDasharray="3 3" />
-                              <XAxis dataKey="name" />
+                              <CartesianGrid strokeDasharray="3 3" className="dark:text-white"/>
+                              <XAxis dataKey="name" className="dark:text-white"/>
                               <YAxis tickFormatter={currencyFormatter} />
                               <Tooltip formatter={currencyFormatter} />
                               {chartDataKeys.map((key, index) => (
@@ -141,6 +142,7 @@ const FirstChart: React.FC<FirstChartProps> = ({
                                   dataKey={key}
                                   fill={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
                                   barSize={18}
+                                  className="dark:text-white"
                                 />
                               ))}
                             </BarChart>

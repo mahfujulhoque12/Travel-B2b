@@ -4,7 +4,7 @@ import React from "react";
 
 const Topbar = () => {
   return (
-    <div className="flex p-3 bg-white shadow-sm rounded-md w-full sticky top-0 z-[50] flex-shrink-0">
+    <div className="flex p-3 bg-white shadow-sm rounded-md w-full sticky top-0 z-[50] flex-shrink-0 dark:bg-darkPrimaryBg dark:text-white">
       <div className=" basis-[30%]">
         <TopLeft />
       </div>

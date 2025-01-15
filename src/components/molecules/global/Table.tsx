@@ -56,13 +56,13 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
 
   return (
     <div>
-      <table className="min-w-full table-auto border-collapse border">
+      <table className="min-w-full table-auto border-collapse border  dark:bg-darkPrimaryBg " >
         <thead>
           <tr className="bg-[#D8ECFD]">
             {columns.map((column) => (
               <th
                 key={column.key}
-                className="p-4 text-start text-sm font-semibold text-[#1768D0]"
+                className="p-4 text-start text-sm font-semibold text-[#1768D0] dark:text-gray-400 dark:bg-[#2E3C4F] "
               >
                 {column.label}
               </th>
@@ -75,7 +75,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
               {columns.map((column) => (
                 <td
                   key={`row-${row.id || rowIndex}-col-${column.key}`}
-                  className={`border-b px-4 py-2 font-normal text-sm ${
+                  className={`border-b dark:border-gray-700 px-4 py-2 font-normal text-sm dark:bg-[#1E293B] dark:text-gray-300 ${
                     column.key === "status" && row[column.key]
                       ? getStatusColor(row[column.key])
                       : "text-[#243045]"
@@ -83,11 +83,13 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                 >
                   {column.type === "text" && <span>{row[column.key]}</span>}
                   {column.type === "button" && column.buttonProps && (
-                    <ReusableButton
-                      label={row[column.buttonProps.labelKey]}
-                      onClick={() => column.buttonProps?.onClick(row)}
-                      className={column.buttonProps.className}
-                    />
+                    <div className="">
+                      <ReusableButton
+                        label={row[column.buttonProps.labelKey]}
+                        onClick={() => column.buttonProps?.onClick(row)}
+                        className={column.buttonProps.className}
+                      />
+                    </div>
                   )}
                   {column.type === "checkbox" && (
                     <input type="checkbox" checked={row[column.key]} readOnly />
@@ -123,7 +125,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                           {column.selectOptions.map((option, index) => (
                             <li
                               key={`${row.id || rowIndex}-opt-${index}`}
-                              className="px-4 w-full py-2 transition-all duration-200 hover:bg-[#D8ECFD] hover:text-[#1768D0] cursor-pointer"
+                              className="px-4 w-full py-2 transition-all duration-200 dark:text-black hover:bg-[#D8ECFD] hover:text-[#1768D0] cursor-pointer"
                               onClick={() => {
                                 Swal.fire({
                                   title: "Are you sure?",

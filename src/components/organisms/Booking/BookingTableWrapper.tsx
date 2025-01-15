@@ -185,7 +185,7 @@ const BookingTableWrapper: React.FC = () => {
   };
 
   return (
-    <div className="p-5 rounded-md">
+    <div className="p-5 rounded-md dark:bg-darkPrimaryBg">
       <TabNavigation tabs={tabs} onTabChange={setActiveTab} />
       <div>{renderTabContent()}</div>
 

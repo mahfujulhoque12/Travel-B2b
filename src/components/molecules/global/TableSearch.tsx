@@ -26,7 +26,7 @@ const TableSearch = ({
         value={localQuery}
         onChange={(e) => setLocalQuery(e.target.value)}
         placeholder="Search here"
-        className="w-full h-9 pl-10 border rounded-md outline-none bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
+        className="w-full h-9 pl-10 border dark:placeholder:text-white rounded-md outline-none dark:text-white dark:bg-darkButtonBg bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
       />
       {localQuery && (
         <Button
@@ -38,7 +38,7 @@ const TableSearch = ({
             document.getElementById("searchBox")?.focus();
           }}
         >
-          <X className="w-4 h-4 text-gray-500" />
+          <X className="w-4 h-4 text-gray-500 dark:text-white" />
         </Button>
       )}
       <Button className="absolute left-3 pl-1 top-1/2 rounded-sm transform -translate-y-1/2 ">

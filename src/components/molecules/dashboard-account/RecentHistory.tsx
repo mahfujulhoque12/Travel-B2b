@@ -54,7 +54,7 @@ const RecentHistory: React.FC<RecentHistoryProps> = ({
         <div>
              <div className="flex items-center justify-between">
         <div>
-          <CardTitle className="font-semibold text-xl text-[#243045]">
+          <CardTitle className="font-semibold text-xl text-[#243045] dark:text-white">
             {title}
           </CardTitle>
           {subtitle && <Span>{subtitle}</Span>}

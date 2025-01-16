@@ -58,11 +58,11 @@ const TravelerList: React.FC<TravelerListProps> = ({
   }, [apiUrl]);
 
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       <CardTitle className="font-semibold text-xl">{title}</CardTitle>
 
       {isLoading ? (
-        <div className="flex justify-center items-center mt-5">
+        <div className="flex justify-center items-center mt-[50%]">
           <div className="w-8 h-8 border-4 border-blue-500 border-dotted rounded-full animate-spin"></div>
         </div>
       ) : (

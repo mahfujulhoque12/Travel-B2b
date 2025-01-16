@@ -13,10 +13,11 @@ import {
   TransactionIcon,
   EmployeeIcon,
   CompanyIcon,
-  LogoutIcon,
   RefundIcon,
 } from "@/components/atoms/Icons";
 import { MdOutlineSupportAgent } from "react-icons/md";
+
+import { HiOutlineLogout } from "react-icons/hi";
 import { cn } from "@/lib/utils";
 
 type SidebarItem = {
@@ -125,21 +126,21 @@ const Sidebar: React.FC<SidebarProps> = ({
         </nav>
 
         {/* Logout Section */}
-        <div className="flex-shrink-0 border-t-2 py-3 border-gray-100 dark:border-gray-900">
-        <Link
-  href="#"
-  className={cn(
-    "group flex items-start gap-3 p-3 text-xs font-normal rounded-md transition-all duration-300 hover:text-white hover:bg-[#1768D0]",
-    pathname === "#" && "bg-[#1768D0] text-white",
-    !isOpen && "justify-center",
-    "text-gray-700 dark:text-white" // Adjusting text color in dark mode
-  )}
->
-  <LogoutIcon className="text-gray-700 dark:text-white" /> {/* Added text color control */}
-  {isOpen && "Logout"}
-</Link>
-
-
+        <div className="flex-shrink-0 border-t-2 py-3 border-gray-100 dark:border-gray-900 dark:text-white" >
+          <Link
+            href="#"
+            className={cn(
+              "group flex items-start gap-3 p-3 text-xs font-normal rounded-md transition-all duration-300 hover:text-white hover:bg-[#1768D0] dark:text-white",
+              pathname === "#" && "bg-[#1768D0] text-white",
+              !isOpen && "justify-center",
+              "text-gray-700  " // Adjusting text color in dark mode
+            )}
+          >
+            <HiOutlineLogout className="dark:text-white" size={20}/>
+            
+            {/* Added text color control */}
+            {isOpen && "Logout"}
+          </Link>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const DashboardChart = () => {
   const currencyFormatter = (value: number) => `${value} $`;
   return (
     <div className='flex gap-4 mt-5  '>
-        <div className='basis-[70%] shadow-md rounded-md py-3'> 
+        <div className='basis-[70%] shadow-md rounded-md py-3 dark:border dark:border-gray-600 dark:shadow-xl dark:rounded-md'> 
         <FirstChart
         apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/v1/dashboard/dashboard-flight`}
         chartDataKeys={['Income', 'Expense']}
@@ -19,7 +19,7 @@ const DashboardChart = () => {
         currencyFormatter={currencyFormatter}
       />
         </div>
-        <div className='basis-[30%] shadow-md rounded'>
+        <div className='basis-[30%] shadow-md rounded dark:border dark:border-gray-600 dark:shadow-xl dark:rounded-md'>
         <TravelerList
         apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/v1/dashboard/current-travel`}
         initialCount={6}

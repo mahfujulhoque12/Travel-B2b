@@ -75,7 +75,8 @@ export default {
         },
         darkMainBg: "#111827", 
         darkPrimaryBg:"#1E293B",
-        darkButtonBg:"#F4F7FE4D",
+        darkButtonBg:"#313d4a",
+
       },
  
       borderRadius: {
@@ -110,7 +111,23 @@ export default {
           "&::-webkit-scrollbar-thumb:hover": {
             backgroundColor: "#D8ECFD",
           },
+    
+          // Dark mode styles
+          "@media (prefers-color-scheme: dark)": {
+            scrollbarColor: "#2C3E50 #34495E",
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#2C3E50",
+              border: "2px solid #34495E",
+            },
+            "&::-webkit-scrollbar-track": {
+              backgroundColor: "#34495E",
+            },
+            "&::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: "#2C3E50",
+            },
+          },
         },
+    
         ".sidebar-container": {
           overflowY: "auto",
           scrollbarWidth: "thin",
@@ -118,8 +135,21 @@ export default {
           "&::-webkit-scrollbar": {
             width: "2px",
           },
+    
+          // Dark mode styles
+          "@media (prefers-color-scheme: dark)": {
+            scrollbarColor: "#2C3E50 #34495E",
+            "&::-webkit-scrollbar-thumb": {
+              backgroundColor: "#2C3E50",
+              border: "2px solid #34495E",
+            },
+            "&::-webkit-scrollbar-track": {
+              backgroundColor: "#34495E",
+            },
+          },
         },
       });
     }),
+    
   ],
 } satisfies Config;

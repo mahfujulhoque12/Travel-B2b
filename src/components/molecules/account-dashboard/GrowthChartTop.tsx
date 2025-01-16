@@ -57,7 +57,7 @@ const GrowthChartTop = () => {
         }}
       >
         <Button
-          className="text-[#8391A1] bg-[#F4F7FE] rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1"
+          className="text-[#8391A1] bg-[#F4F7FE] rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1 dark:bg-darkButtonBg dark:text-white"
           onClick={chartDropdown.toggle}
           aria-haspopup="true"
           aria-expanded={chartDropdown.isOpen}

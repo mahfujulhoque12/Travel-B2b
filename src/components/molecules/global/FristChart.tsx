@@ -17,7 +17,6 @@ import Switch from "../dashboard-account/Switch";
 import ChartDropdownCom from "../dashboard-account/ChartDropdown";
 import ChartDatePicker from "../dashboard-account/ChartDatePicker";
 
-
 type DataItem = {
   [key: string]: string | number; // Generalize the data item structure
 };
@@ -26,7 +25,7 @@ type FirstChartProps = {
   apiUrl: string;
   chartDataKeys: string[]; // Data keys to be used in BarChart
   title: string;
-  subtitle:string; 
+  subtitle: string;
   incomeLabel: string;
   expenseLabel: string;
   currencyFormatter: (value: number) => string; // Formatter for Y-axis and Tooltip
@@ -44,7 +43,7 @@ const FirstChart: React.FC<FirstChartProps> = ({
   const [data, setData] = useState<DataItem[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-   const [isBarChart, setIsBarChart] = useState<boolean>(true); // State to toggle between BarChart and LineChart
+  const [isBarChart, setIsBarChart] = useState<boolean>(true); // State to toggle between BarChart and LineChart
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +54,7 @@ const FirstChart: React.FC<FirstChartProps> = ({
         }
         const result = await response.json();
         setData(result);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
       } catch (err: any) {
         setError(err.message);
       } finally {
@@ -68,19 +67,21 @@ const FirstChart: React.FC<FirstChartProps> = ({
 
   return (
     <div className="h-[450px] flex flex-col">
-       <div className="px-4 flex items-center justify-between mb-3">
+      <div className="px-4 flex items-center justify-between mb-3">
         {/* Title Section */}
         <div>
-          <span className="text-lg font-normal text-[#243045] dark:text-white">Income/Expense</span>
+          <span className="text-lg font-normal text-[#243045] dark:text-white">
+            Income/Expense
+          </span>
         </div>
 
         {/* Switch and Dropdown Section */}
         <div className="flex items-center justify-center gap-4">
           {/* Switch Section */}
-         <Switch
-         isChecked={!isBarChart}
-         onChange={(checked) => setIsBarChart(!checked)}
-         />
+          <Switch
+            isChecked={!isBarChart}
+            onChange={(checked) => setIsBarChart(!checked)}
+          />
 
           {/* Orders Dropdown */}
           <ChartDropdownCom />
@@ -117,64 +118,67 @@ const FirstChart: React.FC<FirstChartProps> = ({
         ) : error ? (
           <div className="text-center text-red-500">{error}</div>
         ) : (
-            <div> 
-                      {/* Conditionally render BarChart or LineChart */}
-                      {isBarChart ? (
-                        <div className="mb-0">
-                          <ResponsiveContainer width="100%" height={300}>
-                            <BarChart
-                              data={data || []}
-                              margin={{
-                                top: 5,
-                                right: 30,
-                                left: 20,
-                                bottom: 5,
-                              }}
-                              className="dark:text-white"
-                            >
-                              <CartesianGrid strokeDasharray="3 3" className="dark:text-white"/>
-                              <XAxis dataKey="name" className="dark:text-white"/>
-                              <YAxis tickFormatter={currencyFormatter} />
-                              <Tooltip formatter={currencyFormatter} />
-                              {chartDataKeys.map((key, index) => (
-                                <Bar
-                                  key={key}
-                                  dataKey={key}
-                                  fill={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
-                                  barSize={18}
-                                  className="dark:text-white"
-                                />
-                              ))}
-                            </BarChart>
-                          </ResponsiveContainer>
-                        </div>
-                      ) : (
-                        <ResponsiveContainer width="100%" height={300}>
-                          <LineChart
-                            data={data || []}
-                            margin={{
-                              top: 5,
-                              right: 30,
-                              left: 20,
-                              bottom: 5,
-                            }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="name" />
-                            <YAxis tickFormatter={currencyFormatter} />
-                            <Tooltip formatter={currencyFormatter} />
-                            {chartDataKeys.map((key, index) => (
-                              <Line
-                                key={key}
-                                dataKey={key}
-                                stroke={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
-                                strokeWidth={3}
-                              />
-                            ))}
-                          </LineChart>
-                        </ResponsiveContainer>
-                      )}
-                    </div>
+          <div>
+            {/* Conditionally render BarChart or LineChart */}
+            {isBarChart ? (
+              <div className="mb-0">
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart
+                    data={data || []}
+                    margin={{
+                      top: 5,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                    className="dark:text-white"
+                  >
+                    <CartesianGrid
+                      strokeDasharray="3 3"
+                      className="dark:text-white"
+                    />
+                    <XAxis dataKey="name" className="dark:text-white" />
+                    <YAxis tickFormatter={currencyFormatter} />
+                    <Tooltip formatter={currencyFormatter} />
+                    {chartDataKeys.map((key, index) => (
+                      <Bar
+                        key={key}
+                        dataKey={key}
+                        fill={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
+                        barSize={18}
+                        className="dark:text-white"
+                      />
+                    ))}
+                  </BarChart>
+                </ResponsiveContainer>
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart
+                  data={data || []}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis tickFormatter={currencyFormatter} />
+                  <Tooltip formatter={currencyFormatter} />
+                  {chartDataKeys.map((key, index) => (
+                    <Line
+                      key={key}
+                      dataKey={key}
+                      stroke={index % 2 === 0 ? "#8884d8" : "#82ca9d"}
+                      strokeWidth={3}
+                    />
+                  ))}
+                </LineChart>
+              </ResponsiveContainer>
+            )}
+          </div>
         )}
       </div>
     </div>
@@ -182,4 +186,3 @@ const FirstChart: React.FC<FirstChartProps> = ({
 };
 
 export default FirstChart;
-

@@ -27,7 +27,7 @@ const ChartDatePicker = () => {
 
           {/* Calendar dropdown */}
           {isCalendarOpen && (
-            <div className="absolute p-3 top-10 left-0 w-[340px] bg-white shadow-lg rounded-md z-10 border animate-slide-down  max-w-[350px] transition-all ease-in-out duration-200">
+            <div className="absolute p-3 top-10 left-0 w-[340px] bg-white shadow-lg rounded-md z-10 border animate-slide-down  max-w-[350px] transition-all ease-in-out duration-200 dark:text-black">
               <DayPicker
                 mode="single"
                 selected={selected} // Pass `selected` as Date or undefined

@@ -44,10 +44,10 @@ const SidebarHeader: React.FC<SidebarHeaderProps> = ({
           />
         )}
       </Link>
-      <div className="absolute bg-white right-[-16px] rounded-full border shadow-sm">
+      <div className="absolute bg-white right-[-16px] rounded-full border shadow-sm dark:bg-darkButtonBg">
         <Button
           onClick={toggleAppSlidebar}
-          className="p-2 text-gray-600 hover:text-gray-800 focus:outline-none"
+          className="p-2 text-gray-600 hover:text-gray-800 focus:outline-none dark:text-white"
         >
           {isOpen ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
         </Button>

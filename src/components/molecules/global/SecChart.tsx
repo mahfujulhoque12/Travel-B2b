@@ -68,7 +68,7 @@ const SecChart: React.FC<SecChartProps> = ({
   }, [apiUrl]);
 
   return (
-    <div className=" flex flex-col">
+    <div className=" flex flex-col ">
       <div className="px-4 flex items-center justify-between mb-3">
         {/* Title Section */}
         <div>

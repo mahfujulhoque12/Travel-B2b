@@ -53,7 +53,7 @@ const TopExpence: React.FC = ({
   }, []);
   
   return (
-    <div className="p-4">
+    <div className="p-4 ">
       <CardTitle className="font-semibold text-xl">Top expenses </CardTitle>
 
       {isLoading ? (

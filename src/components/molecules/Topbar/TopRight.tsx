@@ -52,16 +52,16 @@ const TopRight: React.FC = () => {
       <div className="flex gap-5 items-center">
         {/* Action Buttons */}
         <div className="flex gap-2  dark:text-white">
-          <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full  dark:text-white">
+          <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full  dark:bg-darkButtonBg dark:text-white">
             <IoMdSearch size={18} />
           </Button>
-          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:text-white">
+          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:bg-darkButtonBg dark:text-white">
             <CiMail size={18} />
             <span className="bg-[#f23e43] text-white p-[2px] text-[6px] rounded-full absolute top-0 right-0">
               99+
             </span>
           </Button>
-          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:text-white">
+          <Button className="bg-[#F4F7FE4D] relative text-[#8391A1] shadow-sm p-2 rounded-full dark:bg-darkButtonBg dark:text-white">
             <IoMdNotificationsOutline size={18} />
             <span className="bg-[#f23e43] text-white p-[2px] text-[6px] rounded-full absolute top-0 right-0">
               99+

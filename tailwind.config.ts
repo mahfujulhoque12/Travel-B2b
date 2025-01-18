@@ -91,6 +91,7 @@ export default {
     require("tailwindcss-animate"),
     plugin(function ({ addComponents }) {
       addComponents({
+        // Light mode (default)
         ".table-container": {
           overflowY: "auto",
           scrollbarWidth: "thin",
@@ -111,23 +112,26 @@ export default {
           "&::-webkit-scrollbar-thumb:hover": {
             backgroundColor: "#D8ECFD",
           },
+        },
     
-          // Dark mode styles
-          "@media (prefers-color-scheme: dark)": {
-            scrollbarColor: "#2C3E50 #34495E",
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#2C3E50",
-              border: "2px solid #34495E",
-            },
-            "&::-webkit-scrollbar-track": {
-              backgroundColor: "#34495E",
-            },
-            "&::-webkit-scrollbar-thumb:hover": {
-              backgroundColor: "#2C3E50",
-            },
+        // Dark mode
+        ".dark .table-container": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "#2C3E50 #34495E",
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#2C3E50",
+            borderRadius: "20px",
+            border: "2px solid #34495E",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#34495E",
+          },
+          "&::-webkit-scrollbar-thumb:hover": {
+            backgroundColor: "#2C3E50",
           },
         },
     
+        // Sidebar Light mode (default)
         ".sidebar-container": {
           overflowY: "auto",
           scrollbarWidth: "thin",
@@ -135,21 +139,32 @@ export default {
           "&::-webkit-scrollbar": {
             width: "2px",
           },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#D8ECFD",
+            borderRadius: "20px",
+            border: "2px solid #f5f5f5",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#f5f5f5",
+          },
+        },
     
-          // Dark mode styles
-          "@media (prefers-color-scheme: dark)": {
-            scrollbarColor: "#2C3E50 #34495E",
-            "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#2C3E50",
-              border: "2px solid #34495E",
-            },
-            "&::-webkit-scrollbar-track": {
-              backgroundColor: "#34495E",
-            },
+        // Sidebar Dark mode
+        ".dark .sidebar-container": {
+          scrollbarWidth: "thin",
+          scrollbarColor: "#2C3E50 #34495E",
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "#2C3E50",
+            borderRadius: "20px",
+            border: "2px solid #34495E",
+          },
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#34495E",
           },
         },
       });
     }),
+    
     
   ],
 } satisfies Config;

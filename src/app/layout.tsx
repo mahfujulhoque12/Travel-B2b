@@ -44,7 +44,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5 dark:bg-darkMainBg`}
+        className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5  dark:bg-darkMainBg`}
       >
         <div className="flex space-x-5">
           <Sidebar

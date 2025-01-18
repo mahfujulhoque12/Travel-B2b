@@ -81,7 +81,7 @@ const CustomerTableWrapper = () => {
   if (error) return <div className="text-red-500">{error}</div>;
 
   return (
-    <div className="p-5 rounded-md dark:bg-darkPrimaryBg">
+    <div className="p-5 rounded-md bg-white dark:bg-darkPrimaryBg">
       <CustomerData
         data={data[CustomerApiUrl] || []}
         currentPage={currentPage}

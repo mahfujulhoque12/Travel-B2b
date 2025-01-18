@@ -83,7 +83,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                 >
                   {column.type === "text" && <span>{row[column.key]}</span>}
                   {column.type === "button" && column.buttonProps && (
-                    <div className="">
+                    <div>
                       <ReusableButton
                         label={row[column.buttonProps.labelKey]}
                         onClick={() => column.buttonProps?.onClick(row)}
@@ -109,7 +109,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                       onClick={(e) => e.stopPropagation()}
                     >
                       <div
-                        className="bg-[#D8ECFD] text-[#1768D0] p-2 rounded cursor-pointer"
+                        className="bg-[#D8ECFD] dark:bg-darkButtonBg dark:text-white text-[#1768D0] p-2 rounded cursor-pointer"
                         onClick={() =>
                           setIsDropdownOpen(
                             isDropdownOpen === `${rowIndex}-${column.key}`
@@ -121,7 +121,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
                         {row[column.key] || "Select Action"}
                       </div>
                       {isDropdownOpen === `${rowIndex}-${column.key}` && (
-                        <ul className="absolute left-0 max-w-[250px] bg-white border border-gray-300 rounded mt-1 shadow-md z-10 animate-slide-down">
+                        <ul className="absolute left-0 max-w-[250px] bg-white  border border-gray-300 rounded mt-1 shadow-md z-10 animate-slide-down">
                           {column.selectOptions.map((option, index) => (
                             <li
                               key={`${row.id || rowIndex}-opt-${index}`}

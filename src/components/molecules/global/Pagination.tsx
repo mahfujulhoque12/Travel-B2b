@@ -45,8 +45,8 @@ const Pagination: React.FC<PaginationProps> = ({
             onClick={() => handlePageClick(i)}
             className={`px-3 py-1 rounded-md mx-1 text-sm font-semibold ${
               i === currentPage
-                ? "bg-[#1571E7] text-white"
-                : "bg-[#e6e8eb] text-gray-700"
+                ? "bg-[#1571E7] text-white dark:bg-darkMainBg"
+                : "bg-[#e6e8eb] text-gray-700 dark:bg-darkButtonBg dark:text-white"
             }`}
           >
             {i}
@@ -56,7 +56,7 @@ const Pagination: React.FC<PaginationProps> = ({
         pages.push(
           <button
             key="ellipsis"
-            className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] text-[#243045] disabled:opacity-50"
+            className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] dark:bg-[#F4F7FE4D] text-[#243045] disabled:opacity-50"
           >
             <Ellipsis className="w-4 h-4" />
           </button>
@@ -72,7 +72,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handlePrevious}
         disabled={currentPage === 1}
-        className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] text-[#243045] disabled:opacity-50"
+        className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] text-[#243045] disabled:opacity-50 dark:bg-[#F4F7FE4D] "
       >
         <ChevronLeft className="w-4 h-4" />
       </button>
@@ -80,7 +80,7 @@ const Pagination: React.FC<PaginationProps> = ({
       <button
         onClick={handleNext}
         disabled={currentPage === totalPages}
-        className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] text-[#243045] disabled:opacity-50"
+        className="px-2 py-1.5 text-sm font-semibold rounded-md bg-[#F5F7FA] text-[#243045] disabled:opacity-50 dark:bg-[#F4F7FE4D]"
       >
         <ChevronRight className="w-4 h-4" />
       </button>

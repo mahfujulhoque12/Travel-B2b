@@ -161,6 +161,7 @@ export default {
           "&::-webkit-scrollbar-track": {
             backgroundColor: "#34495E",
           },
+          
         },
       });
     }),

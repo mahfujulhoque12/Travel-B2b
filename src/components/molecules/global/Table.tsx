@@ -56,7 +56,7 @@ const Table: React.FC<ReusableTableProps> = ({ data, columns }) => {
 
   return (
     <div>
-      <table className="min-w-full table-auto border-collapse border  dark:bg-darkPrimaryBg " >
+      <table className="min-w-full  overflow-x-auto border-collapse border  dark:bg-darkPrimaryBg " >
         <thead>
           <tr className="bg-[#D8ECFD]">
             {columns.map((column) => (

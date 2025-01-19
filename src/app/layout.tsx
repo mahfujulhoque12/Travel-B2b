@@ -54,12 +54,12 @@ export default function RootLayout({
             onMouseLeave={handleMouseLeave}
           />
           <div
-              className={`flex-1 flex flex-col space-y-5 transition-all duration-300 fixed top-0 left-5 z-[500] w-full ${
+              className={`flex-1 flex flex-col space-y-0 md:space-y-5 transition-all duration-300 fixed top-0 left-0 md:left-5 z-[500] w-full md:h-[calc(100vh-40px)] ${
                 isOpen ? "lg:pl-56" : "lg:pl-20"
               } md:relative  md:pr-5`}
-              style={{ height: "calc(100vh - 40px)" }}
+              // style={{ height: "calc(100vh - 40px)" }}
             >
-            <div className="flex flex-col h-full space-y-5 mt-3 md:mt-0 mr-8 md:mr-0">
+            <div className="flex flex-col space-y-1 h-full md:space-y-5 md:mt-0">
               <Topbar />
 
               <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container ">

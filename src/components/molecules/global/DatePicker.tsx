@@ -70,7 +70,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
         "MMM dd"
       )}`;
     }
-    return "Calendar";
+    return <span className="hidden sm:block">Calendar</span> ;
   };
 
   return (
@@ -80,7 +80,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     >
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center gap-3 w-full border border-[#7C7C7C] rounded-lg px-4 py-2 text-sm text-gray-700 bg-white dark:bg-darkButtonBg  focus:outline-none "
+        className="flex items-center gap-0 sm:gap-3 w-full border border-[#7C7C7C] rounded-lg px-2 sm:px-4 py-2 text-sm text-gray-700 bg-white dark:bg-darkButtonBg  focus:outline-none "
       >
         <span className="text-[#7C7C7C] dark:text-white">{getPlaceholderText()}</span>
         <FaCalendarAlt className="text-[#7C7C7C] dark:text-white"/>

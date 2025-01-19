@@ -39,12 +39,12 @@ const columnMap: Record<number, Column[]> = {
 };
 
 const tabs = [
-  { label: "Flight", icon: <LuPlaneTakeoff size={20} /> },
-  { label: "Hotel", icon: <LuHotel size={20} /> },
-  { label: "Package", icon: <GiPalmTree size={20} /> },
-  { label: "Visa", icon: <TiWorldOutline size={20} /> },
-  { label: "Car", icon: <FaCar size={20} /> },
-  { label: "Hajj & Umrah", icon: <PiMosqueThin size={20} /> },
+  { label: "Flight", icon: <LuPlaneTakeoff size={20} className="hidden sm:block" /> },
+  { label: "Hotel", icon: <LuHotel size={20} className="hidden sm:block"  /> },
+  { label: "Package", icon: <GiPalmTree size={20} className="hidden sm:block"  /> },
+  { label: "Visa", icon: <TiWorldOutline size={20} className="hidden sm:block"  /> },
+  { label: "Car", icon: <FaCar size={20} className="hidden sm:block"  /> },
+  { label: "Hajj & Umrah", icon: <PiMosqueThin size={20} className="hidden sm:block"  /> },
 ];
 
 const apiUrls: string[] = [
@@ -95,19 +95,19 @@ const BookingTableWrapper: React.FC = () => {
 
   const buttons = [
     {
-      label: "Filter",
+      label:<span className="hidden sm:block">Filter</span> ,
       onClick: () => console.log("Filter clicked"),
       icon: <RiFilter2Line size={20} />,
       className: "bg-[#FCAA22] hover:bg-[#ffb53d]",
     },
     {
-      label: "Export",
+      label: <span  className="hidden sm:block">Export</span>,
       onClick: handleExport,
       icon: <LuDownload size={20} />,
       className: "bg-[#20B038] hover:bg-[#257a33]",
     },
     {
-      label: "Print",
+      label:<span  className="hidden sm:block">Print</span>,
       onClick: handlePrint,
       icon: <IoPrintOutline size={20} />,
       className: "bg-[#1768D0] hover:bg-[#2e77d7]",
@@ -185,7 +185,7 @@ const BookingTableWrapper: React.FC = () => {
   };
 
   return (
-    <div className="p-5 rounded-md bg-white dark:bg-darkPrimaryBg">
+    <div className="p-1 sm:p-5 rounded-md bg-white dark:bg-darkPrimaryBg">
       <TabNavigation tabs={tabs} onTabChange={setActiveTab} />
       <div>{renderTabContent()}</div>
 

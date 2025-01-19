@@ -4,13 +4,16 @@ import { Button } from "@/components/atoms/Button";
 import { Search } from "lucide-react";
 import { Input } from "@/components/atoms/Input";
 import { useDebounce } from "@/hooks/useDebounce";
+import { cn } from "@/lib/utils";
 
 const TableSearch = ({
   searchQuery,
   setSearchQuery,
+  className,
 }: {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
+  className?:string;
 }) => {
   const [localQuery, setLocalQuery] = useState(searchQuery);
   const debouncedQuery = useDebounce(localQuery, 200);
@@ -20,13 +23,13 @@ const TableSearch = ({
   }, [debouncedQuery, setSearchQuery]);
 
   return (
-    <div className="relative max-w-sm">
+    <div className={cn("relative max-w-sm",className)}>
       <Input
         id="searchBox"
         value={localQuery}
         onChange={(e) => setLocalQuery(e.target.value)}
         placeholder="Search here"
-        className="w-full h-9 pl-10 border dark:placeholder:text-white rounded-md outline-none dark:text-white dark:bg-darkButtonBg bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
+        className="w-full  h-9 pl-10 border dark:placeholder:text-white rounded-md outline-none dark:text-white dark:bg-darkButtonBg bg-white shadow-none focus-visible:ring-1 focus:ring-0 focus:outline-none"
       />
       {localQuery && (
         <Button

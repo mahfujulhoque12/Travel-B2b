@@ -1,6 +1,6 @@
 import { BookingDataType } from "@/hooks/useFetchData";
 interface ActionButtonType {
-  label: string;
+  label: React.ReactNode;
   onClick: () => void;
   icon: React.ReactNode;
   className: string;

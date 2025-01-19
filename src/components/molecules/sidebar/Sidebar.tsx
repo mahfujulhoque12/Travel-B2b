@@ -116,6 +116,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                       : "text-gray-700 dark:text-white",
                     !(isOpen || isMobileMenuOpen) && "justify-center"
                   )}
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <div
                     className={cn(

@@ -39,8 +39,8 @@ const AccountDashboardWrapper = () => {
       <AccountCard/>
       <AccountChart/>
 
-      <div className='flex gap-4 mt-5 '>
-        <div className='basis-[70%] shadow-md rounded-md p-3'> 
+      <div className='flex flex-col lg:flex-row gap-4 mt-5 '>
+        <div className='basis-[100%] md:basis-[70%] shadow-md rounded-md p-3'> 
               <RecentHistory
       title="Recent Transaction"
       subtitle="Last week transaction history"
@@ -50,7 +50,7 @@ const AccountDashboardWrapper = () => {
       onButtonClick={() => console.log("View All Clicked")}
     /> 
         </div>
-        <div className='basis-[30%] shadow-md rounded p-3'>
+        <div className='basis-[100%] md:basis-[30%] shadow-md rounded p-3'>
           <TravelerList
            apiUrl={`${process.env.NEXT_PUBLIC_API_URL}/api/v1/account-dashboard/top-clients`}
            initialCount={5}

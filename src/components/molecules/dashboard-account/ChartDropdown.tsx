@@ -45,7 +45,7 @@ const ChartDropdownCom = () => {
     }}
   >
     <Button
-      className="text-[#8391A1]  bg-[#F4F7FE] dark:bg-darkButtonBg dark:text-white rounded p-2.5 text-sm relative cursor-pointer flex items-center gap-1"
+      className="text-[#8391A1]  bg-[#F4F7FE] dark:bg-darkButtonBg dark:text-white rounded p-1.5 md:p-2.5 text-xs md:text-sm relative cursor-pointer flex items-center gap-1"
       onClick={chartDropdown.toggle}
       aria-haspopup="true"
       aria-expanded={chartDropdown.isOpen}

@@ -149,3 +149,15 @@ body {
 *{
   @apply transition-colors duration-200
 }
+
+
+
+
+/* tab navigation  */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -46,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5  dark:bg-darkMainBg`}
       >
-        <div className="flex space-x-5">
+    <div className="flex flex-col md:flex-row w-full">
           <Sidebar
             toggleAppSlidebar={toggleAppSlidebar}
             isOpen={isOpen}
@@ -54,15 +54,15 @@ export default function RootLayout({
             onMouseLeave={handleMouseLeave}
           />
           <div
-            className={`flex flex-1 flex-col space-y-5 transition-all duration-300 fixed top-5 z-[500] w-full pr-14 ${
-              isOpen ? "pl-56" : "pl-20"
-            }`}
-            style={{ height: "calc(100vh - 40px)" }}
-          >
-            <div className="flex flex-col h-full space-y-5">
+              className={`flex-1 flex flex-col space-y-5 transition-all duration-300 fixed top-0 left-5 z-[500] w-full ${
+                isOpen ? "lg:pl-56" : "lg:pl-20"
+              } md:relative  md:pr-5`}
+              style={{ height: "calc(100vh - 40px)" }}
+            >
+            <div className="flex flex-col h-full space-y-5 mt-3 md:mt-0 mr-8 md:mr-0">
               <Topbar />
 
-              <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container">
+              <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container ">
                 <div>{children}</div>
               </main>
             </div>

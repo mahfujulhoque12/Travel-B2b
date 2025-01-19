@@ -71,7 +71,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     <div>
       {/* Hamburger Button */}
       <button
-        className="fixed top-5 right-5 z-[1000] flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md lg:hidden dark:bg-darkButtonBg dark:text-white"
+        className="fixed top-5 left-4  md:top-16 z-[1000] flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-md lg:hidden dark:bg-darkButtonBg dark:text-white"
         onClick={handleHamburgerClick}
         aria-label="Toggle Sidebar"
       >
@@ -82,12 +82,12 @@ const Sidebar: React.FC<SidebarProps> = ({
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed top-0 left-0 z-[999] h-full bg-white shadow-lg transition-transform duration-300 dark:bg-darkPrimaryBg",
+          "fixed top-0 left-0 z-[999]  bg-white shadow-lg transition-transform duration-300 dark:bg-darkPrimaryBg h-[calc(100vh-40px)] " ,
           isMobileMenuOpen ? "translate-x-0 " : "-translate-x-full ",
           "lg:translate-x-0 lg:top-5 lg:left-5 lg:rounded-md lg:shadow-none",
           isOpen || isMobileMenuOpen ? "w-56" : "w-20"
         )}
-        style={{ height: "calc(100vh - 40px)" }}
+     
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
       >

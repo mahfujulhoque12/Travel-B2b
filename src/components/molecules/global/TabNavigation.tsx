@@ -65,14 +65,14 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
         {/* Tabs container */}
         <div
           ref={scrollContainerRef}
-          className="flex w-full overflow-x-auto no-scrollbar space-x-4 px-4"
+          className="flex w-full overflow-x-auto no-scrollbar space-x-1 sm:space-x-4  sm:px-4"
         >
           {tabs.map((tab, index) => (
             <button
               key={index}
               onClick={() => handleTabClick(index)}
               className={cn(
-                "relative px-4 py-3.5 text-base font-normal text-center rounded-md flex gap-2 items-center dark:text-white whitespace-nowrap",
+                "relative px-4 py-1 sm:py-3.5 text-sm sm:text-base font-normal text-center rounded-md flex gap-2 items-center dark:text-white whitespace-nowrap",
                 isBackground
                   ? activeTab === index
                     ? "bg-blue-gradient text-white"
@@ -82,6 +82,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
                   : "text-[#7C7C7C]"
               )}
             >
+              
               {tab.icon}
               {tab.label}
 

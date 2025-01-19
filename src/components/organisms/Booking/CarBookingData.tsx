@@ -57,9 +57,9 @@ const CarBookingData: React.FC<BookingPropsType> = ({
   } = useFlightBookingFilter(data);
 
   return (
-    <div>
+    <div className="px-5 sm:p-0">
 <div className="mt-5 grid grid-cols-1 lg:grid-cols-2 gap-4 ">
-        <div className="flex  flex-col  sm:flex-row sm:justify-start sm:items-center gap-2">
+        <div className="flex  sm:justify-start sm:items-center gap-2">
           <TableSearch
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}

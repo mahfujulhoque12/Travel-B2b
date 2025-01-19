@@ -3,7 +3,7 @@ import { Button } from "@/components/atoms/Button";
 
 // Define the interface for a button
 interface FilterButton {
-  label: string;
+  label:React.ReactNode;
   onClick: () => void;
   icon: React.ReactNode;
   className: string;

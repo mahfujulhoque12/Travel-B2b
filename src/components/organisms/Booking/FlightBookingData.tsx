@@ -9,7 +9,7 @@ import { ColumnConfig } from "@/components/molecules/global/Table";
 import DatePicker from "@/components/molecules/global/DatePicker";
 import { Button } from "@/components/atoms/Button";
 import { BookingPropsType } from "@/types/component";
-import { BookingDataType } from "@/hooks/useFetchData";
+import { BookingDataType } from "@/types/api";
 
 export const columns: ColumnConfig[] = [
   { key: "issueDate", type: "text", label: "Issue Date" },
@@ -54,6 +54,8 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
     setSelectFilter,
     setDateRangeFilter,
     getFilterOptions,
+    resetFilters,
+    isCalendarFiltered,
   } = useFlightBookingFilter(data);
 
   return (
@@ -64,7 +66,12 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
           />
-          <DatePicker field="issueDate" setFilter={setDateRangeFilter} />
+          <DatePicker
+            field="issueDate"
+            setFilter={setDateRangeFilter}
+            isCalendarFiltered={isCalendarFiltered}
+            resetFilters={resetFilters}
+          />
           {["status"].map((field) => (
             <SelectFilter
               key={field}
@@ -75,7 +82,7 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
           ))}
         </div>
         <div className="flex items-center justify-end gap-4">
-          {actionButton.map((button, index) => (
+          {actionButton?.map((button, index) => (
             <Button
               key={index}
               onClick={(e) => {

@@ -4,17 +4,23 @@ import { Button } from "@/components/atoms/Button";
 import "react-day-picker/dist/style.css";
 import { format } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface DatePickerProps {
   field: string;
   setFilter: (field: string, startDate: string, endDate: string) => void;
   defaultRange?: DateRange;
+  isCalendarFiltered?: boolean;
+  resetFilters?: () => void;
 }
 
 const DatePicker: React.FC<DatePickerProps> = ({
   field,
   setFilter,
   defaultRange,
+  isCalendarFiltered,
+  resetFilters,
 }) => {
   const [selectedRange, setSelectedRange] = useState<DateRange | null>(
     defaultRange || null
@@ -73,19 +79,42 @@ const DatePicker: React.FC<DatePickerProps> = ({
     return "Calendar";
   };
 
-  return (
-    <div
-      ref={datePickerRef}
-      className="relative inline-block text-left "
-    >
-      <button
-        onClick={() => setIsOpen(true)}
-        className="flex items-center gap-3 w-full border border-[#7C7C7C] rounded-lg px-4 py-2 text-sm text-gray-700 bg-white focus:outline-none  "
-      >
-        <span className="text-[#7C7C7C]">{getPlaceholderText()}</span>
-        <FaCalendarAlt className="text-[#7C7C7C]"/>
-      </button>
+  // reset selection filter and state
+  const resetCalendarFilter = () => {
+    setSelectedRange(null);
+    setTempRange(null);
+    if (resetFilters) {
+      resetFilters();
+    }
+  };
 
+  return (
+    <div ref={datePickerRef} className="relative inline-block text-left ">
+      <div className="relative w-full">
+        {isCalendarFiltered ? (
+          <Button
+            onClick={resetCalendarFilter}
+            className={cn(
+              "flex gap-3 items-center w-full border border-[#7C7C7C] rounded-lg px-4 py-2 text-sm  text-rose-500 bg-white focus:outline-none"
+            )}
+          >
+            <span>{getPlaceholderText()}</span>
+            <X className=" w-4 h-4" />
+          </Button>
+        ) : (
+          // Main Button for Opening Popover (shown when no filter is applied)
+          <button
+            onClick={() => setIsOpen(true)} // Opens the popover
+            className={cn(
+              "flex gap-3 items-center w-full border border-[#7C7C7C] rounded-lg px-4 py-2 text-sm text-gray-700 bg-white focus:outline-none"
+            )}
+          >
+            <span className="text-[#7C7C7C]">{getPlaceholderText()}</span>
+            {/* Show calendar icon only when the filter is not applied */}
+            <FaCalendarAlt className="text-[#7C7C7C]" />
+          </button>
+        )}
+      </div>
       {isOpen && (
         <>
           <div className="absolute mt-2 z-10 py-2 px-4 bg-white border border-gray-300 rounded-lg shadow-lg  animate-slide-down ">

@@ -27,6 +27,7 @@ const useDropdown = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { isOpen, toggle, close, ref };
@@ -72,7 +73,13 @@ const TopRight: React.FC = () => {
             if (event.key === "Escape") languageDropdown.close();
           }}
         >
-          <Image src={flag} width={50} height={50} alt="flag" className="w-6 h-5" />
+          <Image
+            src={flag}
+            width={50}
+            height={50}
+            alt="flag"
+            className="w-6 h-5"
+          />
           <Button
             className="text-[#8391A1] bg-white rounded p-1 text-sm relative cursor-pointer"
             onClick={languageDropdown.toggle}
@@ -100,17 +107,21 @@ const TopRight: React.FC = () => {
         </div>
       </div>
 
-        {/* moon */}
-        <Button
-          className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full"
-         
-        >
-          <IoMoonOutline size={18} />
-        </Button>
+      {/* moon */}
+      <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full">
+        <IoMoonOutline size={18} />
+      </Button>
 
       {/* Admin Dropdown */}
       <div className="flex items-center gap-3 relative" ref={adminDropdown.ref}>
-      <Image src={admin} width={50} height={50} alt="flag" className="w-8 h-8 cursor-pointer"  onClick={adminDropdown.toggle}/>
+        <Image
+          src={admin}
+          width={50}
+          height={50}
+          alt="flag"
+          className="w-8 h-8 cursor-pointer"
+          onClick={adminDropdown.toggle}
+        />
         <Button
           className="flex items-center text-sm text-[#8391A1]"
           onClick={adminDropdown.toggle}
@@ -121,8 +132,12 @@ const TopRight: React.FC = () => {
         </Button>
         {adminDropdown.isOpen && (
           <ul className="absolute animate-slide-down bg-white shadow-md rounded right-0 w-32 top-10 border z-10">
-            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">Profile Info</li>
-            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">Logout</li>
+            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">
+              Profile Info
+            </li>
+            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">
+              Logout
+            </li>
           </ul>
         )}
       </div>

@@ -8,7 +8,7 @@ import { useFlightBookingFilter } from "@/hooks/filter/useFilter";
 import { ColumnConfig } from "@/components/molecules/global/Table";
 import DatePicker from "@/components/molecules/global/DatePicker";
 import { BookingPropsType } from "@/types/component";
-import { BookingDataType } from "@/hooks/useFetchData";
+import { BookingDataType } from "@/hooks/filter/api/v1/useFetchData";
 import { Button } from "@/components/atoms/Button";
 
 export const columns: ColumnConfig[] = [
@@ -35,7 +35,7 @@ const TopupTableData: React.FC<BookingPropsType> = ({
   currentPage,
   totalPages,
   onPageChange,
-  actionButton
+  actionButton,
 }) => {
   const {
     filteredTableData,
@@ -81,17 +81,17 @@ const TopupTableData: React.FC<BookingPropsType> = ({
         <div className=" mt-5 ">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
-          {filteredTableData.length > 0 && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={onPageChange}
-            />
-          )}
-        </div>
+            {filteredTableData.length > 0 && (
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={onPageChange}
+              />
+            )}
+          </div>
         </div>
       </div>
-        </div>
+    </div>
   );
 };
 

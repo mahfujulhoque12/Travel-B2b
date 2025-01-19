@@ -9,7 +9,7 @@ import DatePicker from "@/components/molecules/global/DatePicker";
 import Pagination from "@/components/molecules/global/Pagination";
 
 import { BookingPropsType } from "@/types/component";
-import { BookingDataType } from "@/hooks/useFetchData";
+import { BookingDataType } from "@/hooks/filter/api/v1/useFetchData";
 import { Button } from "@/components/atoms/Button";
 
 export const columns: ColumnConfig[] = [

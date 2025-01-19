@@ -1,7 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import Loader from "@/components/molecules/global/Loader";
-import { usePaginatedFetchData } from "@/hooks/useFetchData";
+import { usePaginatedFetchData } from "@/hooks/filter/api/v1/useFetchData";
 import { RiFilter2Line } from "react-icons/ri";
 import { LuDownload } from "react-icons/lu";
 import { IoPrintOutline } from "react-icons/io5";

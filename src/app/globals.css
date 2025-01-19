@@ -120,7 +120,6 @@ body {
   -ms-overflow-style: none;
 }
 
-
 @layer components {
   .tw-swal-popup {
     @apply p-4 rounded-lg shadow-lg bg-white w-[300px]; /* Popup container styles */
@@ -144,5 +143,3 @@ body {
     /* Smaller cancel button */
   }
 }
-
-

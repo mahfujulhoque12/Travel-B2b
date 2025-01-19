@@ -10,8 +10,8 @@ import flag from "/public/topbar/flag.svg";
 import admin from "/public/topbar/admin.png";
 import { Button } from "@/components/atoms/Button";
 import Theme from "../global/Theme";
+import Link from "next/link";
 const useDropdown = () => {
-
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -35,9 +35,6 @@ const useDropdown = () => {
 };
 
 const TopRight: React.FC = () => {
-  
-
-
   const languageDropdown = useDropdown();
   const adminDropdown = useDropdown();
   const [selectedLanguage, setSelectedLanguage] = useState("English");
@@ -48,10 +45,10 @@ const TopRight: React.FC = () => {
   };
 
   return (
-    <div className={` flex items-center gap-5 justify-end  dark:text-white`}>
-      <div className="flex gap-5 items-center">
+    <div className={` flex flex-col sm:flex-row md:items-center gap-5 justify-end  dark:text-white`}>
+      <div className="flex  flex-row gap-0 justify-center items-center">
         {/* Action Buttons */}
-        <div className="flex gap-2  dark:text-white">
+        <div className="flex gap-2    dark:text-white mr-10 sm:mr-0">
           <Button className="bg-[#F4F7FE4D] text-[#8391A1] shadow-sm p-2 rounded-full  dark:bg-darkButtonBg dark:text-white">
             <IoMdSearch size={18} />
           </Button>
@@ -71,13 +68,19 @@ const TopRight: React.FC = () => {
 
         {/* Language Dropdown */}
         <div
-          className="flex items-center gap-1 relative "
+          className="flex items-center gap-1 sm:ml-3 relative  "
           ref={languageDropdown.ref}
           onKeyDown={(event) => {
             if (event.key === "Escape") languageDropdown.close();
           }}
         >
-          <Image src={flag} width={50} height={50} alt="flag" className="w-6 h-5" />
+          <Image
+            src={flag}
+            width={50}
+            height={50}
+            alt="flag"
+            className="w-6 h-5"
+          />
           <Button
             className="text-[#8391A1] bg-white rounded p-1 text-sm relative cursor-pointer dark:bg-darkButtonBg dark:text-white"
             onClick={languageDropdown.toggle}
@@ -105,12 +108,22 @@ const TopRight: React.FC = () => {
         </div>
       </div>
 
-        {/* moon */}
-        <Theme/>
+
+      <div className="flex gap-5 sm:gap-3 justify-start items-start">
+
+      {/* moon */}
+      <Theme />
 
       {/* Admin Dropdown */}
       <div className="flex items-center gap-3 relative" ref={adminDropdown.ref}>
-      <Image src={admin} width={50} height={50} alt="flag" className="w-8 h-8 cursor-pointer"  onClick={adminDropdown.toggle}/>
+        <Image
+          src={admin}
+          width={50}
+          height={50}
+          alt="flag"
+          className="w-8 h-8 cursor-pointer"
+          onClick={adminDropdown.toggle}
+        />
         <Button
           className="flex items-center text-sm text-[#8391A1] dark:text-white"
           onClick={adminDropdown.toggle}
@@ -121,13 +134,25 @@ const TopRight: React.FC = () => {
         </Button>
         {adminDropdown.isOpen && (
           <ul className="absolute animate-slide-down bg-white shadow-md rounded right-0 w-32 top-10 border z-10">
-            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">Profile Info</li>
-            <li className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer">Logout</li>
+            <li
+              className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer"
+              onClick={() => adminDropdown.close()} // Close dropdown when navigating
+            >
+              <Link href="/profile-info">Profile Info</Link>
+            </li>
+            <li
+              className="px-4 py-2 text-sm text-[#8391A1] hover:bg-gray-100 cursor-pointer"
+              onClick={() => adminDropdown.close()} // Optional: Close dropdown on Logout
+            >
+              Logout
+            </li>
           </ul>
         )}
+      </div>
       </div>
     </div>
   );
 };
 
 export default TopRight;
+ 

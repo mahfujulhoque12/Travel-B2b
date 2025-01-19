@@ -58,51 +58,53 @@ const RefundFlightData: React.FC<BookingPropsType> = ({
 
   return (
     <div>
-     <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4 ">
-        <div className="flex  flex-col sm:flex-row sm:justify-start sm:items-center gap-2">
-          <TableSearch
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
-          <DatePicker field="issueDate" setFilter={setDateRangeFilter} />
-          {["status"].map((field) => (
-            <SelectFilter
-              key={field}
-              searchField={field as keyof BookingDataType}
-              getOptions={getFilterOptions}
-              setFilter={setSelectFilter}
-            />
-          ))}
-        </div>
-        <div className="flex items-center justify-end gap-4">
-          {actionButton.map((button, index) => (
-            <Button
-              key={index}
-              onClick={button.onClick}
-              className={`flex gap-1 px-4 py-1.5 rounded-md text-white text-sm font-bold transition-all duration-150 ${button.className}`}
-            >
-              {button.icon}
-              {button.label}
-            </Button>
-          ))}
-        </div>
-      </div>
-      <div className="flex flex-col gap-1">
-        <div className=" mt-5 ">
-          <Table data={filteredTableData} columns={columns} />
-          <div className="flex justify-end">
-          {filteredTableData.length > 0 && (
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={onPageChange}
-            />
-          )}
-        </div>
-        </div>
-      </div>
+    <div className="mt-5 grid grid-cols-1 lg:grid-cols-2 gap-4 ">
+          
+            <div className="flex  flex-col  sm:flex-row sm:justify-start sm:items-center gap-2">
+              <TableSearch
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+              />
+              <DatePicker field="issueDate" setFilter={setDateRangeFilter} />
+              {["status"].map((field) => (
+                <SelectFilter
+                  key={field}
+                  searchField={field as keyof BookingDataType}
+                  getOptions={getFilterOptions}
+                  setFilter={setSelectFilter}
+                />
+              ))}
+            </div>
+            <div className="flex items-start lg:items-center justify-start overflow-x-auto no-scrollbar lg:justify-end gap-4">
+              {actionButton.map((button, index) => (
+                <Button
+                  key={index}
+                  onClick={button.onClick}
+                  className={`flex gap-1 px-4 py-1.5 rounded-md text-white text-sm font-bold transition-all duration-150 ${button.className}`}
+                >
+                  {button.icon}
+                  {button.label}
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className=" mt-5 ">
         
-        </div>
+              <Table data={filteredTableData} columns={columns} />
+              <div className="flex justify-end">
+              {filteredTableData.length > 0 && (
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={onPageChange}
+                />
+              )}
+            </div>
+            </div>
+          </div>
+            
+            </div>
   );
 };
 

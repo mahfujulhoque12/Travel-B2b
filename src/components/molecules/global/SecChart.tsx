@@ -69,14 +69,14 @@ const SecChart: React.FC<SecChartProps> = ({
 
   return (
     <div className=" flex flex-col ">
-      <div className="px-4 flex items-center justify-between mb-3">
+       <div className="px-4 flex flex-col sm:flex-row items-start md:items-center justify-between mb-3">
         {/* Title Section */}
         <div>
-          <span className="text-lg font-normal text-[#243045] dark:text-white">Income/Expense</span>
+        <span className="text-sm sm:text-lg  font-normal text-[#243045] dark:text-white">Income/Expense</span>
         </div>
 
         {/* Switch and Dropdown Section */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center gap-4 mt-3 md:mt-0">
           {/* Switch Section */}
          <Switch
          isChecked={!isBarChart}
@@ -92,19 +92,19 @@ const SecChart: React.FC<SecChartProps> = ({
       </div>
 
       {/* Title and Bar Legend Section */}
-      <div className="h-[50px] flex items-center justify-between px-4 mb-3">
-        <CardTitle className="text-2xl font-semibold text-[#FF6800]">
+      <div className="h-[50px] flex flex-col sm:flex-row items-start md:items-center justify-between px-4 mb-3">
+        <CardTitle className="text-lg sm:text-2xl font-semibold text-[#FF6800]">
           {title}
           <Span className="text-sm text-[#8391A1] font-bold">{subtitle}</Span>
         </CardTitle>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-[#FF6800]"></div>
-            <Span>{incomeLabel}</Span>
+            <div className="w-2 h-2 sm:w-4 sm:h-4 bg-[#FF6800]"></div>
+            <Span className="text-xs sm:text-sm">{incomeLabel}</Span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-4 h-4 bg-[#1F73A1]"></div>
-            <Span>{expenseLabel}</Span>
+            <div className="w-2 h-2 sm:w-4 sm:h-4 bg-[#1F73A1]"></div>
+            <Span className="text-xs sm:text-sm">{expenseLabel}</Span>
           </div>
         </div>
       </div>

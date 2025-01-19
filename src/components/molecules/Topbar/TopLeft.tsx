@@ -17,15 +17,15 @@ const TopLeft = () => {
 
   return (
     <div>
-      <Button className="text-black text-base font-semibold m-0">
+      <Button className="text-black text-xs sm:text-xs md:text-base font-semibold m-0">
         <Breadcrumb />
       </Button>
 
-      <div className="flex items-center mt-1.5 gap-2">
-        <span className="flex items-center text-[#8391A1] text-sm font-normal gap-1 dark:text-white">
+      <div className="flex items-start sm:items-center mt-1.5 gap-2 ">
+        <span className="flex items-center text-[#8391A1] text-sm font-normal gap-1 dark:text-white  sm:text-xs">
           <BiSearchAlt size={20} /> {routeText} <FaAnglesRight />
         </span>
-        <Button className="text-sm font-semibold text-[#257CEB]">
+        <Button className="text-sm font-semibold text-[#257CEB]  sm:text-xs">
           <Breadcrumb />
         </Button>
       </div>

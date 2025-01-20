@@ -136,7 +136,7 @@ const BookingSystem = ({
   };
 
   return (
-    <div className="px-5 py-2 space-y-5">
+    <div className="px-5 py-2 space-y-5 ">
       <TabNavigation tabs={tabs} onTabChange={setActiveTab} />
       <div className="shadow-md space-y-5 p-5">{renderActiveSection()}</div>
     </div>

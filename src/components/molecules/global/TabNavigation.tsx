@@ -88,7 +88,7 @@ const TabNavigation: React.FC<TabNavigationProps> = ({
 
               {!isBackground && (
                 <span
-                  className={`w-[103px] h-[2.5px] absolute left-1/2 bottom-[-2px] transform -translate-x-1/2 ${
+                  className={`w-[70px] sm:w-[103px] h-[2.5px] absolute left-1/2 bottom-[-2px] transform -translate-x-1/2 ${
                     activeTab === index ? "bg-[#1571E7]" : "bg-transparent"
                   }`}
                 ></span>

@@ -27,7 +27,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-         <head>
+      <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -46,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}  antialiased bg-[#eff3f8] overflow-x-hidden p-5  dark:bg-darkMainBg`}
       >
-    <div className="flex flex-col md:flex-row w-full">
+        <div className="flex flex-col md:flex-row w-full">
           <Sidebar
             toggleAppSlidebar={toggleAppSlidebar}
             isOpen={isOpen}
@@ -54,15 +54,15 @@ export default function RootLayout({
             onMouseLeave={handleMouseLeave}
           />
           <div
-              className={`flex-1 flex flex-col space-y-0 md:space-y-5 transition-all duration-300 fixed top-0 left-0 md:left-5 z-[500] w-full md:h-[calc(100vh-40px)] ${
-                isOpen ? "lg:pl-56" : "lg:pl-20"
-              } md:relative  md:pr-5`}
-              // style={{ height: "calc(100vh - 40px)" }}
-            >
+            className={`flex-1 flex flex-col space-y-0 md:space-y-5 transition-all duration-300 fixed top-0 left-0 md:left-5 z-[500] w-full md:h-[calc(100vh-40px)] ${
+              isOpen ? "lg:pl-56" : "lg:pl-20"
+            } md:relative  md:pr-5`}
+            // style={{ height: "calc(100vh - 40px)" }}
+          >
             <div className="flex flex-col space-y-1 h-full md:space-y-5 md:mt-0">
               <Topbar />
 
-              <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container ">
+              <main className="flex-grow overflow-y-auto rounded-md space-y-5 table-container bg-white">
                 <div>{children}</div>
               </main>
             </div>

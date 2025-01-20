@@ -88,7 +88,7 @@ const HajjUmrahData: React.FC<BookingPropsType> = ({
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className="h-[67vh] mt-5">
+        <div className="overflow-x-auto mt-5">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
             {filteredTableData.length > 0 && (

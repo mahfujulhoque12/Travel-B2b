@@ -7,13 +7,12 @@ import { LuPlaneTakeoff } from "react-icons/lu";
 import { LuDownload } from "react-icons/lu";
 import { IoPrintOutline } from "react-icons/io5";
 import { RiFilter2Line } from "react-icons/ri";
-import { IoAddSharp } from "react-icons/io5";
 import { LuHotel } from "react-icons/lu";
 import { GiPalmTree } from "react-icons/gi";
 import Print from "@/components/molecules/global/Print";
 import Export from "@/components/molecules/global/Export";
 
-import { FaCar } from "react-icons/fa";
+import { FaCar, FaPlus } from "react-icons/fa";
 import { PiMosqueThin } from "react-icons/pi";
 
 import ReportFlightData from "./ReportFlightData";
@@ -40,11 +39,11 @@ const columnMap: Record<number, Column[]> = {
 };
 
 const tabs = [
-  { label: "Flight", icon: <LuPlaneTakeoff size={20} /> },
-  { label: "Hotel", icon: <LuHotel size={20} /> },
-  { label: "Package", icon: <GiPalmTree size={20} /> },
-  { label: "Car", icon: <FaCar size={20} /> },
-  { label: "Hajj & Umrah", icon: <PiMosqueThin size={20} /> },
+  { label: "Flight", icon: <LuPlaneTakeoff size={20} className="hidden sm:block" /> },
+  { label: "Hotel", icon: <LuHotel size={20} className="hidden sm:block" /> },
+  { label: "Package", icon: <GiPalmTree size={20} className="hidden sm:block" /> },
+  { label: "Car", icon: <FaCar size={20} className="hidden sm:block" /> },
+  { label: "Hajj & Umrah", icon: <PiMosqueThin size={20} className="hidden sm:block" /> },
 ];
 
 const ReportTableWrapper: React.FC = () => {
@@ -88,27 +87,27 @@ const ReportTableWrapper: React.FC = () => {
 
   const buttons = [
     {
-      label: "Filter",
+      label: <span className="hidden sm:block">Filter</span>,
       onClick: () => console.log("Filter clicked"),
       icon: <RiFilter2Line size={20} />,
       className: "bg-[#FCAA22] hover:bg-[#ffb53d]",
     },
     {
-      label: "Export",
+      label: <span className="hidden sm:block">Export</span>,
       onClick: handleExport,
       icon: <LuDownload size={20} />,
       className: "bg-[#20B038] hover:bg-[#257a33]",
     },
     {
-      label: "Print",
+      label: <span className="hidden sm:block">Print</span>,
       onClick: handlePrint,
       icon: <IoPrintOutline size={20} />,
       className: "bg-[#1768D0] hover:bg-[#2e77d7]",
     },
     {
-      label: "Add",
-      onClick: () => console.log("Add clicked"),
-      icon: <IoAddSharp size={20} />,
+      label: <span className="hidden sm:block">Add</span>,
+      onClick: handlePrint,
+      icon: <FaPlus size={18} />,
       className: "bg-[#1768D0] hover:bg-[#2e77d7]",
     },
   ];

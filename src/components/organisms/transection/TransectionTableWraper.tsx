@@ -48,19 +48,19 @@ const TransectionTableWraper = () => {
 
   const buttons = [
     {
-      label: "Filter",
+      label: <span className="hidden sm:block">Filter</span>,
       onClick: () => console.log("Filter clicked"),
       icon: <RiFilter2Line size={20} />,
       className: "bg-[#FCAA22] hover:bg-[#ffb53d]",
     },
     {
-      label: "Export",
+      label: <span className="hidden sm:block">Export</span>,
       onClick: handleExport,
       icon: <LuDownload size={20} />,
       className: "bg-[#20B038] hover:bg-[#257a33]",
     },
     {
-      label: "Print",
+      label: <span className="hidden sm:block">Print</span>,
       onClick: handlePrint,
       icon: <IoPrintOutline size={20} />,
       className: "bg-[#1768D0] hover:bg-[#2e77d7]",

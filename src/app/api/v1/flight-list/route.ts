@@ -1,0 +1,141 @@
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  const flights = [
+    {
+      id: 1,
+      airlines: [
+        {
+          name: "Emirates Airlines",
+          flightNumber: "EA 455",
+          departureTime: "19:15",
+          arrivalTime: "22:45",
+          origin: "Dhaka",
+          destination: "Dubai",
+          duration: "07h 30m",
+          stops: "1 Stop Via Dubai",
+          terminal: "Terminal 3",
+          aircraft: "Airbus A380",
+        },
+        {
+          name: "Turkish Airlines",
+          flightNumber: "TK 784",
+          departureTime: "01:15",
+          arrivalTime: "06:30",
+          origin: "Dubai",
+          destination: "Istanbul",
+          duration: "05h 15m",
+          stops: "Direct",
+          terminal: "Terminal 2",
+          aircraft: "Boeing 777",
+        },
+      ],
+      price: 889,
+      originalPrice: 1268.1,
+      flightType: "Multiple Flight",
+      refundable: true,
+      layoverDetails: {
+        layoverAirport: "Dubai International Airport",
+        layoverDuration: "03h 30m",
+      },
+      baggagePolicy: [
+        { weight: "0 to 15 Kg", price: 0 },
+        { weight: "20 Kg", price: 25 },
+        { weight: "25 Kg", price: 30 },
+        { weight: "30 Kg", price: 50 },
+      ],
+      badge: "FLIGHTINT",
+    },
+    {
+      id: 2,
+      airlines: [
+        {
+          name: "Emirates Airlines",
+          flightNumber: "EA 455",
+          departureTime: "19:15",
+          arrivalTime: "22:45",
+          origin: "Dhaka",
+          destination: "Dubai",
+          duration: "07h 30m",
+          stops: "1 Stop Via Dubai",
+          terminal: "Terminal 3",
+          aircraft: "Airbus A380",
+        },
+        {
+          name: "Turkish Airlines",
+          flightNumber: "TK 784",
+          departureTime: "01:15",
+          arrivalTime: "06:30",
+          origin: "Dubai",
+          destination: "Istanbul",
+          duration: "05h 15m",
+          stops: "Direct",
+          terminal: "Terminal 2",
+          aircraft: "Boeing 777",
+        },
+      ],
+      price: 600,
+      originalPrice: 1268.1,
+      flightType: "Multiple Flight",
+      refundable: true,
+      layoverDetails: {
+        layoverAirport: "Dubai International Airport",
+        layoverDuration: "03h 30m",
+      },
+      baggagePolicy: [
+        { weight: "0 to 15 Kg", price: 0 },
+        { weight: "20 Kg", price: 25 },
+        { weight: "25 Kg", price: 30 },
+        { weight: "30 Kg", price: 50 },
+      ],
+      badge: "FLIGHTINT",
+    },
+
+    {
+      id: 3,
+      airlines: [
+        {
+          name: "ABC Airlines",
+          flightNumber: "EA 455",
+          departureTime: "19:15",
+          arrivalTime: "22:45",
+          origin: "Dhaka",
+          destination: "Dubai",
+          duration: "07h 30m",
+          stops: "1 Stop Via Dubai",
+          terminal: "Terminal 3",
+          aircraft: "Airbus A380",
+        },
+        {
+          name: "Turkish Airlines",
+          flightNumber: "TK 784",
+          departureTime: "01:15",
+          arrivalTime: "06:30",
+          origin: "Dubai",
+          destination: "Istanbul",
+          duration: "05h 15m",
+          stops: "Direct",
+          terminal: "Terminal 2",
+          aircraft: "Boeing 777",
+        },
+      ],
+      price: 100,
+      originalPrice: 1268.1,
+      flightType: "Multiple Flight",
+      refundable: false,
+      layoverDetails: {
+        layoverAirport: "Dubai International Airport",
+        layoverDuration: "03h 30m",
+      },
+      baggagePolicy: [
+        { weight: "0 to 15 Kg", price: 0 },
+        { weight: "20 Kg", price: 25 },
+        { weight: "25 Kg", price: 30 },
+        { weight: "30 Kg", price: 50 },
+      ],
+      badge: "FLIGHTINT",
+    },
+  ];
+
+  return NextResponse.json({ flights });
+}

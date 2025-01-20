@@ -1,5 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { Flight } from "@/types/api";
 export interface BookingDataType {
   id: number;
   issueDate: string;
@@ -45,3 +46,41 @@ export const usePaginatedFetchData = (
     error: error?.message || null,
   };
 };
+
+/* get flights */
+export function useGetFlights() {
+  const [flights, setFlights] = useState<Flight[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    async function fetchFlights() {
+      setIsLoading(true);
+      try {
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/flight-list`,
+          { signal: controller.signal }
+        );
+        const { flights } = await response.json();
+        setFlights(flights);
+      } catch (err) {
+        if (err instanceof DOMException && err.name !== "AbortError") {
+          setError("Failed to fetch flights.");
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchFlights();
+
+    return () => {
+      controller.abort();
+    };
+  }, []);
+
+  return { flights, error, isLoading };
+}
+/* get flights */

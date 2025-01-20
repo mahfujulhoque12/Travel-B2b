@@ -1,5 +1,29 @@
-import {DashboardIcon} from "@/components/atoms/Icons";
-import { SearchIcons, BookingIcon,  TopupIcon, CustomerIcon, ReportIcon,EmployeeIcon, CompanyIcon, LogoutIcon,TransactionIcon  } from './Icons';
+import { DashboardIcon } from "@/components/atoms/Icons";
+import {
+  SearchIcons,
+  BookingIcon,
+  TopupIcon,
+  CustomerIcon,
+  ReportIcon,
+  EmployeeIcon,
+  CompanyIcon,
+  LogoutIcon,
+  TransactionIcon,
+  TakeOffFromIcon,
+  TakeOffToIcon,
+  CalenderLabelIcon,
+  TaxiIcon,
+  PickupIcon,
+  BookingCheckIcon,
+  MultipleAirplaneIcon,
+  PriceRangeIcon,
+  TimeRemainingIcon,
+  AirlinesFilterIcon,
+  FlightTypeIcon,
+  RefundabilityIcon,
+  LayoverFilterIcon,
+  BaggagePolicyIcon,
+} from "./Icons";
 
 export {
   DashboardIcon,
@@ -12,4 +36,18 @@ export {
   EmployeeIcon,
   CompanyIcon,
   LogoutIcon,
+  TakeOffFromIcon,
+  TakeOffToIcon,
+  CalenderLabelIcon,
+  TaxiIcon,
+  PickupIcon,
+  BookingCheckIcon,
+  MultipleAirplaneIcon,
+  PriceRangeIcon,
+  TimeRemainingIcon,
+  AirlinesFilterIcon,
+  FlightTypeIcon,
+  RefundabilityIcon,
+  LayoverFilterIcon,
+  BaggagePolicyIcon,
 };

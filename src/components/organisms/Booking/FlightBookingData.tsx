@@ -91,7 +91,7 @@ const FlightBookingData: React.FC<BookingPropsType> = ({
         </div>
       </div>
       <div className="flex flex-col gap-1">
-        <div className=" mt-5 table-auto">
+        <div className=" overflow-auto mt-5 table-auto">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
             {filteredTableData.length > 0 && (

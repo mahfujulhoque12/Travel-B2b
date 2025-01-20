@@ -78,7 +78,7 @@ const TopupTableData: React.FC<BookingPropsType> = ({
         </div>
       </div>
       <div className="flex flex-col gap-1 overflow-auto">
-        <div className=" mt-5  ">
+        <div className=" mt-5 overflow-x-auto ">
           <Table data={filteredTableData} columns={columns} />
           <div className="flex justify-end">
             {filteredTableData.length > 0 && (

@@ -21,7 +21,6 @@ export default {
         "slide-down": "slideDown 0.3s ease-out",
       },
       colors: {
-   
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -73,12 +72,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        darkMainBg: "#111827", 
-        darkPrimaryBg:"#1E293B",
-        darkButtonBg:"#313d4a",
-
+        darkMainBg: "#111827",
+        darkPrimaryBg: "#1E293B",
+        darkButtonBg: "#313d4a",
       },
- 
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -113,7 +111,7 @@ export default {
             backgroundColor: "#D8ECFD",
           },
         },
-    
+
         // Dark mode
         ".dark .table-container": {
           scrollbarWidth: "thin",
@@ -130,7 +128,7 @@ export default {
             backgroundColor: "#2C3E50",
           },
         },
-    
+
         // Sidebar Light mode (default)
         ".sidebar-container": {
           overflowY: "auto",
@@ -148,7 +146,7 @@ export default {
             backgroundColor: "#f5f5f5",
           },
         },
-    
+
         // Sidebar Dark mode
         ".dark .sidebar-container": {
           scrollbarWidth: "thin",
@@ -161,11 +159,14 @@ export default {
           "&::-webkit-scrollbar-track": {
             backgroundColor: "#34495E",
           },
-          
+          ".bg-blue-gradient": {
+            background: "#1571E7",
+          },
+          ".gradient-text": {
+            color: "#1571E7",
+          },
         },
       });
     }),
-    
-    
   ],
 } satisfies Config;

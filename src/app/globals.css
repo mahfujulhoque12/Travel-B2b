@@ -120,7 +120,6 @@ body {
   -ms-overflow-style: none;
 }
 
-
 @layer components {
   .tw-swal-popup {
     @apply p-4 rounded-lg shadow-lg bg-white w-[300px]; /* Popup container styles */
@@ -145,13 +144,9 @@ body {
   }
 }
 
-
-*{
-  @apply transition-colors duration-200
+* {
+  @apply transition-colors duration-200;
 }
-
-
-
 
 /* tab navigation  */
 .no-scrollbar::-webkit-scrollbar {
